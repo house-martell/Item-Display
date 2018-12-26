@@ -1,0 +1,125 @@
+/* == flexbox == */
+
+.flex-row {
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.spaced {
+  justify-content: space-around;
+}
+
+
+
+/* == components below == */
+
+.clickable {
+  cursor: pointer;
+}
+
+/* == photo list == */
+
+.photo-list {
+  width: 70px;
+  height: 84px;
+  margin: 4px 12px;
+}
+
+
+/* == photo scroll == */
+
+.photo-scroll {
+  width: 640px;
+  height: 768px;
+  /* margin: 10px 6px; */
+}
+
+.photo-scroll-container {
+  margin: 0 20px;
+}
+
+
+
+
+/* == product detail below == */
+
+.product-detail-container {
+  margin: 0 20px;
+  padding-left: 20px;
+}
+
+/* == detail description == */
+
+h2 {
+  font-size: 36px;
+  margin: 0 auto;
+}
+
+/* == detail colors == */
+
+.swatch {
+  width: 50px;
+  height: 25px;
+  padding: 2px;
+  margin: 4px 10px;
+  /* border: 1px solid black; */
+}
+
+.swatch:first-child {
+  margin-left: 4px;
+}
+
+/* == detail buttons == */
+
+select {
+  border:none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -ms-appearance: none;
+}
+
+.icon {
+  width: 24px;
+  height: 22px;
+  vertical-align: middle;
+}
+
+.icon-text {
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.button-box {
+  border: 1px solid black;
+  padding: 12px;
+  margin: 4px;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all .5s ease-in-out;
+}
+
+.white-btn:hover {
+  background-color: rgb(216, 216, 216);
+  border: 1px solid rgb(216, 216, 216);
+  transition: all .3s ease;
+}
+
+.red-btn {
+  border: 1px solid #d22030;
+  background-color: #d22030;
+  color: white;
+}
+
+.red-btn:hover {
+  opacity: 0.7;
+}

@@ -1,2 +1,2 @@
-# Item Display
-FEC Item Display
+# FEC
+Item Display Module
