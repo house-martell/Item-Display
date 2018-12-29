@@ -2,21 +2,20 @@ import React from 'react';
 
 const DetailColors = props => {
   return (
-    <div>
+    <div className="detail-colors-container">
       <div className="flex-row wrap">
         {props.colors.map((color, i) => {
           return (
             <div key={i} onClick={() => props.onSwatchClick(color.id)}>
-              <img className="swatch clickable" src={color.swatch_url}/>
+              <img onClick={props.onSwatchSelect} className="swatch clickable" src={color.swatch_url}/>
             </div>
           );
         })}
         <br/>
       </div>
-      <div>
+      <div className="swatch-name">
         {props.currentColor.name}
       </div>
-      <br/>
       <br/>
     </div>
   );

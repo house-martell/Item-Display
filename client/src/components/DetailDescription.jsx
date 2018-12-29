@@ -1,49 +1,18 @@
 import React from 'react';
 
 const DetailDescription = props => {
-  if (props.product.nameline2) {
-    return (
-      <div>
-        <h2>
-          {props.product.name}
-          <br/>
-          {props.product.nameline2}
-        </h2>
-        <br/>
-        <br/>
-        {`${props.product.price} USD`}
-        <br/>
-        <br/>
+  return (
+    <div className="detail-description-container">
+      <h2>
         Why we made this
-        <br/>
-        <br/>
+      </h2>
+      <p>
         {props.product.description}
-        <br/>
-        <br/>
-        <br/>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <h2>
-          {props.product.name}
-        </h2>
-        <br/>
-        <br/>
-        {`${props.product.price} USD`}
-        <br/>
-        <br/>
-        Why we made this
-        <br/>
-        <br/>
-        {props.product.description}
-        <br/>
-        <br/>
-        <br/>
-      </div>
-    );
-  }
+      </p>
+      <div className="horizontal-line"></div>
+      <br/>
+    </div>
+  );
 };
 
 export default DetailDescription;

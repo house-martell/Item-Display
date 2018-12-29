@@ -80,6 +80,30 @@ const productSeedData = [
     type: 'Crops',
     price: '$118.00',
     description: 'These high-rise, all-sport crops use zoned compression to keep you supported in all the right places.'
+  },
+  {
+    name: 'Align Short',
+    nameline2: '4"',
+    category: 'Bottoms',
+    type: 'Shorts',
+    price: '$48.00',
+    description: 'These lightweight, high-rise shorts minimize distractions and maximize comfort as you flow through your yoga practice.'
+  },
+  {
+    name: 'Run Times Short II',
+    nameline2: '4"',
+    category: 'Bottoms',
+    type: 'Shorts',
+    price: '$58.00',
+    description: 'Looking for a longer run short? We updated the waistband on this classic design, but kept the 4" inseam.'
+  },
+  {
+    name: 'Hotty Hot Short',
+    nameline2: '2.5"',
+    category: 'Bottoms',
+    type: 'Shorts',
+    price: '$58.00',
+    description: 'Sweat to your heart\'s content in these lightweight cross-sport shorts that are lined for coverage. They have a secret stash pocket in the liner and a discreet zippered pocket on the back waistband for keys, cards, gels, or cash.'
   }
 ];
 
@@ -333,6 +357,86 @@ const colorSeedData = [
     name: 'Dark Adobe',
     swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product10_swatch_color9.jpeg',
     productId: 10
+  },
+  {
+    name: 'Lacescape Spanish Rose Black',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product11_swatch_color1.jpeg',
+    productId: 11
+  },
+  {
+    name: 'True Navy',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product11_swatch_color2.jpeg',
+    productId: 11
+  },
+  {
+    name: 'Dark Olive',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product11_swatch_color3.jpeg',
+    productId: 11
+  },
+  {
+    name: 'Dark Adobe',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product11_swatch_color4.jpeg',
+    productId: 11
+  },
+  {
+    name: 'Black',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product11_swatch_color5.jpeg',
+    productId: 11
+  },
+  {
+    name: 'Luminesce Splatter Ice Grey Black',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product11_swatch_color6.jpeg',
+    productId: 11
+  },
+  {
+    name: 'Dark Adobe',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product12_swatch_color1.jpeg',
+    productId: 12
+  },
+  {
+    name: 'Luminosity Foil Print Black Silver/Black',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product12_swatch_color2.jpeg',
+    productId: 12
+  },
+  {
+    name: 'Green Smoke',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product12_swatch_color3.jpeg',
+    productId: 12
+  },
+  {
+    name: 'Heather Lux Multi Black/Black',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product12_swatch_color4.jpeg',
+    productId: 12
+  },
+  {
+    name: 'True Navy',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product12_swatch_color5.jpeg',
+    productId: 12
+  },
+  {
+    name: 'White',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product12_swatch_color6.jpeg',
+    productId: 12
+  },
+  {
+    name: 'Black',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product12_swatch_color7.jpeg',
+    productId: 12
+  },
+  {
+    name: 'Midnight Navy',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product13_swatch_color1.jpeg',
+    productId: 13
+  },
+  {
+    name: 'Black',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product13_swatch_color2.jpeg',
+    productId: 13
+  },
+  {
+    name: 'White',
+    swatch_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/swatches/lulumelon_product13_swatch_color3.jpeg',
+    productId: 13
   }
 ];
 
@@ -1584,6 +1688,370 @@ const photoSeedData = [
   {
     photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product10/lulumelon_product10_color9_photo6.jpeg',
     colorId: 50
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color1_photo1.jpeg',
+    colorId: 51
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color1_photo2.jpeg',
+    colorId: 51
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color1_photo3.jpeg',
+    colorId: 51
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color1_photo4.jpeg',
+    colorId: 51
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color1_photo5.jpeg',
+    colorId: 51
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color1_photo6.jpeg',
+    colorId: 51
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color2_photo1.jpeg',
+    colorId: 52
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color2_photo2.jpeg',
+    colorId: 52
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color2_photo3.jpeg',
+    colorId: 52
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color2_photo4.jpeg',
+    colorId: 52
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color2_photo5.jpeg',
+    colorId: 52
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color2_photo6.jpeg',
+    colorId: 52
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color3_photo1.jpeg',
+    colorId: 53
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color3_photo2.jpeg',
+    colorId: 53
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color3_photo3.jpeg',
+    colorId: 53
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color3_photo4.jpeg',
+    colorId: 53
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color3_photo5.jpeg',
+    colorId: 53
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color3_photo6.jpeg',
+    colorId: 53
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color4_photo1.jpeg',
+    colorId: 54
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color4_photo2.jpeg',
+    colorId: 54
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color4_photo3.jpeg',
+    colorId: 54
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color4_photo4.jpeg',
+    colorId: 54
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color4_photo5.jpeg',
+    colorId: 54
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color4_photo6.jpeg',
+    colorId: 54
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color5_photo1.jpeg',
+    colorId: 55
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color5_photo2.jpeg',
+    colorId: 55
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color5_photo3.jpeg',
+    colorId: 55
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color5_photo4.jpeg',
+    colorId: 55
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color5_photo5.jpeg',
+    colorId: 55
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color5_photo6.jpeg',
+    colorId: 55
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color6_photo1.jpeg',
+    colorId: 56
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color6_photo2.jpeg',
+    colorId: 56
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color6_photo3.jpeg',
+    colorId: 56
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color6_photo4.jpeg',
+    colorId: 56
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color6_photo5.jpeg',
+    colorId: 56
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product11/lulumelon_product11_color6_photo6.jpeg',
+    colorId: 56
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color1_photo1.jpeg',
+    colorId: 57
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color1_photo2.jpeg',
+    colorId: 57
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color1_photo3.jpeg',
+    colorId: 57
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color1_photo4.jpeg',
+    colorId: 57
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color1_photo5.jpeg',
+    colorId: 57
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color2_photo1.jpeg',
+    colorId: 58
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color2_photo2.jpeg',
+    colorId: 58
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color2_photo3.jpeg',
+    colorId: 58
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color2_photo4.jpeg',
+    colorId: 58
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color3_photo1.jpeg',
+    colorId: 59
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color3_photo2.jpeg',
+    colorId: 59
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color3_photo3.jpeg',
+    colorId: 59
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color3_photo4.jpeg',
+    colorId: 59
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color3_photo5.jpeg',
+    colorId: 59
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color3_photo6.jpeg',
+    colorId: 59
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color4_photo1.jpeg',
+    colorId: 60
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color4_photo2.jpeg',
+    colorId: 60
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color4_photo3.jpeg',
+    colorId: 60
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color4_photo4.jpeg',
+    colorId: 60
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color4_photo5.jpeg',
+    colorId: 60
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color5_photo1.jpeg',
+    colorId: 61
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color5_photo2.jpeg',
+    colorId: 61
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color5_photo3.jpeg',
+    colorId: 61
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color5_photo4.jpeg',
+    colorId: 61
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color5_photo5.jpeg',
+    colorId: 61
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color5_photo6.jpeg',
+    colorId: 61
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color6_photo1.jpeg',
+    colorId: 62
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color6_photo2.jpeg',
+    colorId: 62
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color6_photo3.jpeg',
+    colorId: 62
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color6_photo4.jpeg',
+    colorId: 62
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color6_photo5.jpeg',
+    colorId: 62
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color7_photo1.jpeg',
+    colorId: 63
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color7_photo2.jpeg',
+    colorId: 63
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color7_photo3.jpeg',
+    colorId: 63
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color7_photo4.jpeg',
+    colorId: 63
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color7_photo5.jpeg',
+    colorId: 63
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product12/lulumelon_product12_color7_photo6.jpeg',
+    colorId: 63
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color1_photo1.jpeg',
+    colorId: 64
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color1_photo2.jpeg',
+    colorId: 64
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color1_photo3.jpeg',
+    colorId: 64
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color1_photo4.jpeg',
+    colorId: 64
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color1_photo5.jpeg',
+    colorId: 64
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color1_photo6.jpeg',
+    colorId: 64
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color1_photo7.jpeg',
+    colorId: 64
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color2_photo1.jpeg',
+    colorId: 65
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color2_photo2.jpeg',
+    colorId: 65
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color2_photo3.jpeg',
+    colorId: 65
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color2_photo4.jpeg',
+    colorId: 65
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color2_photo5.jpeg',
+    colorId: 65
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color2_photo6.jpeg',
+    colorId: 65
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color3_photo1.jpeg',
+    colorId: 66
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color3_photo2.jpeg',
+    colorId: 66
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color3_photo3.jpeg',
+    colorId: 66
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color3_photo4.jpeg',
+    colorId: 66
+  },
+  {
+    photo_url: 'https://s3-us-west-1.amazonaws.com/fec-lulumelon/product13/lulumelon_product13_color3_photo5.jpeg',
+    colorId: 66
   }
 ];
 

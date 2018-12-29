@@ -1,12 +1,12 @@
 import React from 'react';
 
-const PhotoScroll = props => {
+const SmallPhotoScroll = props => {
   return (
-    <div className="photo-scroll-container flex-column">
+    <div className="small-photo-scroll-container">
       {props.photos.map((photo, i) => {
         return (
           <div id={photo.id} key={i}>
-            <img className="photo-scroll" src={photo.photo_url}/>
+            <img className="small-photo-scroll" src={photo.photo_url}/>
           </div>
         );
       })}
@@ -14,4 +14,4 @@ const PhotoScroll = props => {
   );
 };
 
-export default PhotoScroll;
+export default SmallPhotoScroll;

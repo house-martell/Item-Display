@@ -29,12 +29,14 @@ class App extends React.Component {
     this.getPhotos = this.getPhotos.bind(this);
 
     this.onSwatchClick = this.onSwatchClick.bind(this);
+    this.onSwatchSelect = this.onSwatchSelect.bind(this);
     this.onPhotoClick = this.onPhotoClick.bind(this);
+    this.onPhotoSelect = this.onPhotoSelect.bind(this);
   }
 
   componentDidMount() {
-    this.getProduct(Math.floor(Math.random() * 10) + 1); 
-    // 4 is num of products we have -> needs to be 30 eventually
+    this.getProduct(Math.floor(Math.random() * 13) + 1); 
+    // 13 is num of products we have -> needs to be 30 eventually
   }
 
   getProduct(productId) {
@@ -82,30 +84,51 @@ class App extends React.Component {
     this.selectCurrentColor(colorId);
   }
 
+  onSwatchSelect(e) {
+    let swatches = document.getElementsByClassName('swatch');
+    swatches = Array.prototype.slice.call(swatches);
+    swatches.forEach(swatch => {
+      swatch.classList.remove('init-swatch', 'selected-swatch');
+    });
+    e.target.classList.add('selected-swatch');
+  }
+
   onPhotoClick(photo) {
     this.setState({ currentPhoto: photo }, () => console.log('current photo from click', this.state.currentPhoto));
+  }
+
+  onPhotoSelect(e) {
+    let photos = document.getElementsByClassName('photo-list');
+    photos = Array.prototype.slice.call(photos);
+    photos.forEach(photo => {
+      photo.classList.remove('selected-photo');
+    });
+    e.target.classList.add('selected-photo');
   }
 
   render() {
     return (
       <div className="flex-column">
-        <div>
+        <div className="directory">
           <span className="clickable">Women</span>{' > '}<span className="clickable">{this.state.currentProduct.category}</span>{' > '}<span className="clickable">{this.state.currentProduct.type}</span>
         </div>
         <br/>
-        <div className="flex-row">
+        <div className="container flex-row">
           <PhotoList 
             photos={this.state.photos} 
             onPhotoClick={this.onPhotoClick}
+            onPhotoSelect={this.onPhotoSelect}
           />
           <PhotoScroll 
             photos={this.state.photos} 
           />
           <ProductDetail 
             product={this.state.currentProduct} 
+            photos={this.state.photos} 
             colors={this.state.colors} 
             currentColor={this.state.currentColor}
-            onSwatchClick={this.onSwatchClick} 
+            onSwatchClick={this.onSwatchClick}
+            onSwatchSelect={this.onSwatchSelect}
           />
         </div>
       </div>

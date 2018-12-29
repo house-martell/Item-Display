@@ -2,7 +2,7 @@ import React from 'react';
 
 const DetailDropdowns = props => {
   return (
-    <div>
+    <div className="detail-dropdowns-container">
       DETAIL DROPDOWNS HERE
     </div>
   );
