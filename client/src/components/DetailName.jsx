@@ -10,7 +10,7 @@ const DetailName = props => {
           {props.product.nameline2}
         </h1>
         <br/>
-        <div>
+        <div className="total-price">
           <span className="price">
             {props.product.price}
           </span>
@@ -25,7 +25,7 @@ const DetailName = props => {
           {props.product.name}
         </h1>
         <br/>
-        <div>
+        <div className="total-price">
           <span className="price">
             {props.product.price}
           </span>

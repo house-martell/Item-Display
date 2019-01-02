@@ -12,80 +12,7 @@
 
 body {
   font-family: "Lululemon Light";
-}
-
-/* == media == */
-
-@media screen and (max-width: 992px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-
-  .directory {
-    display: none;
-  }
-
-  .photo-list-container {
-    display: none !important;
-  }
-
-  .photo-scroll-container {
-    display: none !important;
-  }
-
-  .small-photo-scroll {
-    max-width: 100% !important;
-    height: auto;
-  }
-  
-  .product-detail-container {
-    margin: 0 !important;
-    padding: 0;
-  }
-
-  .detail-name-container {
-    display: flex;
-    justify-content: space-between;
-    order: 1;
-    padding: 8px;
-    font-size: 2.5vw;
-  }
-
-  .price {
-    font-size: 16px !important;
-  }
-
-  .currency {
-    font-size: 12px !important;
-  }
-
-  .small-photo-scroll-container {
-    order: 2;
-    display: block !important;
-  }
-
-  .detail-description-container {
-    order: 5;
-    padding: 8px;
-    font-size: 2vw;
-  }
-
-  .detail-colors-container {
-    order: 3;
-    padding: 8px;
-  }
-
-  .detail-buttons-container {
-    order: 4;
-    padding: 8px;
-  }
-
-  .detail-dropdowns-container {
-    order: 6;
-    padding: 8px;
-  }
+  background-color: #fafafa;
 }
 
 /* == flexbox == */
@@ -119,53 +46,62 @@ body {
   cursor: pointer;
 }
 
-/* == app == */
-
-.container {
-  position: relative;
+.directory {
+  margin: 0 12px; 
 }
 
 /* == photo list == */
 
+.parent {
+  max-width: 95px !important;
+  min-width: 95px !important;
+  display: inline-block !important;
+}
+
 .photo-list-container {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  width: 94px;
+  left: 12px;
 }
 
 .photo-list {
   width: 70px;
   height: 84px;
   margin: 4px 12px;
-  opacity: 0.35;
+  opacity: 0.3;
+  transition: opacity .3s ease 0s;
 }
 
 .selected-photo {
   opacity: 1;
 }
 
+.init-photo:first-of-type img {
+  opacity: 1;
+}
 
 /* == photo scroll == */
 
-.photo-scroll {
-  width: 640px;
-  height: 768px;
-  margin: 8px auto;
-  /* margin: 10px 6px; */
-}
-
 .photo-scroll-container {
   margin: 0 20px;
+  position: relative;
 }
 
-
-
+.photo-scroll {
+  max-width: 50vw;
+  height: auto;
+  margin: 8px auto;
+}
 
 /* == product detail below == */
 
 .product-detail-container {
+  max-width: 40vw;
   margin: 0 24px;
+  position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  bottom: 20px;
+  align-self: flex-end;
 }
 
 /* == detail description == */
@@ -186,7 +122,6 @@ p {
 
 .price {
   font-size: 20px;
-  font-weight: lighter;
 }
 
 .currency {
@@ -195,6 +130,7 @@ p {
 
 .horizontal-line {
   border: 0.5px solid #e0e0e0;
+  padding: 0 !important;
 }
 
 /* == detail colors == */
@@ -204,7 +140,7 @@ p {
   height: 25px;
   padding: 3px;
   margin: 4px 10px;
-  /* border: 1px solid black; */
+  border: 0.75px solid white;
 }
 
 .swatch:first-child {
@@ -219,16 +155,24 @@ p {
   border: 1px solid black;
 }
 
+.init-swatch:first-of-type img {
+  border: 1px solid black;
+}
+
+.small-colors {
+  display: none;
+}
+
 /* == detail buttons == */
 
-select {
+/* select {
   border:none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   -ms-appearance: none;
   width: 240px;
-}
+} */
 
 .icon {
   width: 24px;
@@ -250,7 +194,7 @@ select {
   font-family: "Lululemon Heavy";
   border: 1px solid black;
   padding: 12px;
-  margin: 4px 0;
+  margin: 5px 0;
   text-transform: uppercase;
   text-align: center;
   transition: all .5s ease-in-out;
@@ -272,19 +216,312 @@ select {
   opacity: 0.7;
 }
 
+.size-dropdown-container {
+  position: relative;
+}
+
 .size-dropdown {
-  font-family: "Lululemon Light";
-  vertical-align: middle;
-  text-transform: capitalize;
+  width: 240px;
+  padding: 16px;
+  margin: 5px 0;
+  background-color: white;
   font-size: 20px;
+  border: none;
+  outline: none;
+  box-shadow: 1px 1px 4px 0 hsla(0,0%,88%,.5);
+  background-image: url('https://s3-us-west-1.amazonaws.com/fec-lulumelon/icons/size_arrow.png');
+  background-repeat: no-repeat;
+  background-position: 93%;
+  background-size: 13px;
+}
+
+.select-size {
+  display: block;
+  font-size: 15px;
+  text-align: right;
+  float: right;
+  margin-right: 28px;
+  padding-top: 4px;
+}
+
+.sizes-list {
+  display: none;
+  position: absolute;
+  top: 48px;
+  z-index: 10;
+}
+
+.sizes {
+  width: 240px;
+  padding: 16px;
+  margin: 0;
+  background-color: white;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  text-align: center;
+  box-shadow: 1px 1px 4px 0 hsla(0,0%,88%,.5);
+}
+
+.open {
+  display: block;
+}
+
+.sizes:hover {
+  background-color: #fafafa;
 }
 
 .size-guide {
   text-decoration: underline;
   font-family: "Lululemon Heavy";
-  vertical-align: middle;
+  position: relative;
+  top: 15px;
+  vertical-align: bottom;
 }
 
 .small-photo-scroll-container {
   display: none;
+}
+
+/* == detail dropdowns == */
+
+.dropdown {
+  background-color: white;
+  padding: 18px 20px;
+  margin-top: 14px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  /* transition: 0.4s; */
+  font-size: 17px;
+  border-bottom: 0.5px solid #e0e0e0;
+}
+
+.plus:after {
+  content: '\002795';
+  font-size: 12px;
+  float: right;
+  margin-left: 5px;
+}
+
+.minus:after {
+  content: '\002796';
+  font-size: 12px;
+  float: right;
+  margin-left: 5px;
+}
+
+.dropdown-info {
+  background-color: white;
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  max-height: 1000px;
+  transition: max-height .85s cubic-bezier(.09,-.09,.02,1.46);
+}
+
+.dropdown-info div {
+  padding: 8px;
+}
+
+.dropdown-info img {
+  padding-right: 10px;
+}
+
+.fabric-benefit {
+  width: 45%;
+  display: inline-block;
+  padding-left: 0 !important;
+}
+
+.features {
+  padding: 0 !important;
+}
+
+.feature-name {
+  padding-left: 0 !important;
+  width: 100%;
+}
+
+.feature-description {
+  padding-left: 0 !important;
+  width: 100%;
+}
+
+.care-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: bottom;
+}
+
+.care-icon-text {
+  vertical-align: center;
+}
+
+.animated {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes bounce {
+  10%, 60%, 100% {transform: translateY(0);}
+  10% {transform: translateY(-12px);}
+  60% {transform: translateY(0);}
+}
+
+.bounce {
+  animation-name: bounce;
+}
+
+
+
+
+
+
+
+/* == media == */
+
+@media screen and (max-width: 992px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .directory {
+    display: none;
+  }
+
+  .photo-list-container {
+    display: none;
+  }
+
+  .photo-scroll-container {
+    display: none;
+  }
+
+  .small-photo-scroll {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .scrolling {
+    display: inline-block;
+  }
+  
+  .product-detail-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .detail-name-container {
+    display: flex;
+    justify-content: space-between;
+    order: 1;
+    padding: 8px;
+  }
+
+  .total-price {
+    vertical-align: bottom;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .currency {
+    font-size: 12px;
+  }
+
+  .small-photo-scroll-container {
+    order: 2;
+    display: block;
+    width: 100%; 
+    overflow-x:scroll;     
+    white-space: nowrap;
+  }
+
+  .detail-description-container {
+    order: 5;
+    padding: 8px;
+    font-size: 2vw;
+  }
+
+  .break {
+    display: none;
+  }
+
+  .detail-colors-container {
+    order: 3;
+    padding: 8px;
+  }
+
+  .detail-buttons-container {
+    order: 4;
+    padding: 8px;
+  }
+
+  .detail-dropdowns-container {
+    order: 6;
+    padding: 8px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .total-price {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .currency {
+    text-align: right;
+  }
+
+  .swatch-name {
+    display: none;
+  }
+
+  .small-colors {
+    display: block;
+    font-size: 12px;
+  }
+
+  .small-colors-number {
+    display: inline-block;
+  }
+
+  .small-colors-name {
+    display: inline-block;
+    position: absolute;
+    right: 4px;
+  }
+
+  .why-made {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .button-box {
+    font-size: 10px;
+    padding: 7px;
+  }
+
+  .size-dropdown {
+    padding: 12px;
+  }
+
+  .horizontal-line {
+    display: none;
+  }
+
+  .dropdown {
+    font-size: 14px;
+  }
+
 }

@@ -1,4 +1,4 @@
-const { connection, Product, Color, Photo } = require('../model.js');
+const { connection, Product, Color, Photo, Fabric, Feature } = require('../model.js');
 
 const productSeedData = [
   {
@@ -7,7 +7,9 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Pants',
     price: '$98.00',
-    description: 'These versatile high-rise tights were designed to fit like a second skin—perfect for yoga or the gym. Made with Full-On® Luxtreme fabric that offers great support and coverage with a cool, smooth feel.'
+    description: 'These versatile high-rise tights were designed to fit like a second skin—perfect for yoga or the gym. Made with Full-On® Luxtreme fabric that offers great support and coverage with a cool, smooth feel.',
+    fabric_name: 'Full-On® Luxtreme',
+    fabric_description: 'Four-way stretch Full-On® Luxtreme fabric is sweat-wicking and offers great support and coverage with a cool, smooth feel'
   },
   {
     name: 'Wunder Lounge Pant',
@@ -15,7 +17,9 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Pants',
     price: '$98.00',
-    description: 'The no-fuss versatility of your favourite Wunder Under, with a looser fit and warm cottony-soft fabric to give you the comfort you crave on the coldest days.'
+    description: 'The no-fuss versatility of your favourite Wunder Under, with a looser fit and warm cottony-soft fabric to give you the comfort you crave on the coldest days.',
+    fabric_name: 'Cotton Fleece',
+    fabric_description: 'Naturally breathable Cotton Fleece fabric feels thick, soft and cozy long after you\'ve cooled down'
   },
   {
     name: 'In Movement 7/8 Tight',
@@ -23,7 +27,9 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Pants',
     price: '$98.00',
-    description: 'Meet your new studio workout companion: a sleek tight that fits like a second skin. Stretchy Everlux™ fabric dries quickly and wicks sweat in a flash, so you can go straight from pilates to spin.'
+    description: 'Meet your new studio workout companion: a sleek tight that fits like a second skin. Stretchy Everlux™ fabric dries quickly and wicks sweat in a flash, so you can go straight from pilates to spin.',
+    fabric_name: 'Everlux™',
+    fabric_description: 'Four-way stretch Everlux™ fabric feels cool to the touch, wicks sweat, and dries so fast it’s like magic'
   },
   {
     name: 'Fast & Free 7/8 Tight II',
@@ -31,7 +37,9 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Pants',
     price: '$128.00',
-    description: 'Feel fast and free in these barely-there, sweat-wicking run tights. An interior waist drawcord ensures the perfect fit, while reflective details keep you visible in low light. Designed with our Naked Sensation quick-drying Nulux™ fabric, they’ll have you hitting the pavement while floating on clouds. Stash you gels and a key in the waistband pocket.'
+    description: 'Feel fast and free in these barely-there, sweat-wicking run tights. An interior waist drawcord ensures the perfect fit, while reflective details keep you visible in low light. Designed with our Naked Sensation quick-drying Nulux™ fabric, they’ll have you hitting the pavement while floating on clouds. Stash you gels and a key in the waistband pocket.',
+    fabric_name: 'Nulux™',
+    fabric_description: 'Nulux™ fabric is quick-drying, sweat-wicking, and offers lightweight coverage'
   },
   {
     name: 'Tight Stuff Tight II',
@@ -39,7 +47,9 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Pants',
     price: '$148.00',
-    description: 'We engineered these training tights with moderate compression to help stabilize your muscles—and included lots of storage options. Made with Full-On® Luxtreme fabric that offers great support and coverage with a smooth feel and is sweat-wicking and four-way stretch.'
+    description: 'We engineered these training tights with moderate compression to help stabilize your muscles—and included lots of storage options. Made with Full-On® Luxtreme fabric that offers great support and coverage with a smooth feel and is sweat-wicking and four-way stretch.',
+    fabric_name: 'Full-On® Luxtreme',
+    fabric_description: 'Four-way stretch Full-On® Luxtreme fabric is sweat-wicking and offers great support and coverage with a cool, smooth feel'
   },
   {
     name: 'Speed Up Tight',
@@ -47,7 +57,9 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Pants',
     price: '$108.00',
-    description: 'Focus on your gait, not your gear, in these lightweight, sweat-wicking run tights that are fully loaded with built-in storage and reflectivity. We made these tights using our high-coverage and supportive Full-on® Luxtreme fabric that\'s sweat-wicking and four-way stretch with a cool, smooth feel. The waistband is not only lightweight and won\'t dig in, it has slip-in gel pockets in the front, a zippered pocket in the back, and a continuous interior drawcord.'
+    description: 'Focus on your gait, not your gear, in these lightweight, sweat-wicking run tights that are fully loaded with built-in storage and reflectivity. We made these tights using our high-coverage and supportive Full-on® Luxtreme fabric that\'s sweat-wicking and four-way stretch with a cool, smooth feel. The waistband is not only lightweight and won\'t dig in, it has slip-in gel pockets in the front, a zippered pocket in the back, and a continuous interior drawcord.',
+    fabric_name: 'Full-On® Luxtreme',
+    fabric_description: 'Four-way stretch Full-On® Luxtreme fabric is sweat-wicking and offers great support and coverage with a cool, smooth feel'
   },
   {
     name: 'Pace Rival Crop',
@@ -55,7 +67,9 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Crops',
     price: '$88.00',
-    description: 'These versatile run crops, with built-in ventilation, have you covered from long runs to hill training. With our signature 3 pocket waistband, you can bring all your essentials with you.'
+    description: 'These versatile run crops, with built-in ventilation, have you covered from long runs to hill training. With our signature 3 pocket waistband, you can bring all your essentials with you.',
+    fabric_name: 'Full-On® Luxtreme',
+    fabric_description: 'Four-way stretch Full-On® Luxtreme fabric is sweat-wicking and offers great support and coverage with a cool, smooth feel'
   },
   {
     name: 'Align Jogger Crop',
@@ -63,7 +77,9 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Crops',
     price: '$88.00',
-    description: 'Designed with our unbelievably soft Nulu™ fabric and a relaxed fit at the leg, this jogger gives you the perfect no-distractions feeling.'
+    description: 'Designed with our unbelievably soft Nulu™ fabric and a relaxed fit at the leg, this jogger gives you the perfect no-distractions feeling.',
+    fabric_name: 'Nulu™',
+    fabric_description: 'Lightweight, buttery-soft Nulu™ fabric wicks sweat and is four-way stretch'
   },
   {
     name: 'In Movement Crop',
@@ -71,7 +87,9 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Crops',
     price: '$88.00',
-    description: 'Meet your new studio workout companion: a sleek crop that fits like a second skin. Everlux™ fabric is four-way stretch, sweat-wicking, feels cool to the touch, and dries so fast it’s like magic.'
+    description: 'Meet your new studio workout companion: a sleek crop that fits like a second skin. Everlux™ fabric is four-way stretch, sweat-wicking, feels cool to the touch, and dries so fast it’s like magic.',
+    fabric_name: 'Everlux™',
+    fabric_description: 'Four-way stretch Everlux™ fabric feels cool to the touch, wicks sweat, and dries so fast it’s like magic'
   },
   {
     name: 'All The Right Places Crop II',
@@ -79,7 +97,9 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Crops',
     price: '$118.00',
-    description: 'These high-rise, all-sport crops use zoned compression to keep you supported in all the right places.'
+    description: 'These high-rise, all-sport crops use zoned compression to keep you supported in all the right places.',
+    fabric_name: 'Full-On® Luxtreme',
+    fabric_description: 'Four-way stretch Full-On® Luxtreme fabric is sweat-wicking and offers great support and coverage with a cool, smooth feel'
   },
   {
     name: 'Align Short',
@@ -87,7 +107,10 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Shorts',
     price: '$48.00',
-    description: 'These lightweight, high-rise shorts minimize distractions and maximize comfort as you flow through your yoga practice.'
+    description: 'These lightweight, high-rise shorts minimize distractions and maximize comfort as you flow through your yoga practice.',
+    fabric_name: 'Nulux™',
+    fabric_description: 'Nulux™ fabric is quick-drying, sweat-wicking, and offers lightweight coverage'
+
   },
   {
     name: 'Run Times Short II',
@@ -95,7 +118,10 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Shorts',
     price: '$58.00',
-    description: 'Looking for a longer run short? We updated the waistband on this classic design, but kept the 4" inseam.'
+    description: 'Looking for a longer run short? We updated the waistband on this classic design, but kept the 4" inseam.',
+    fabric_name: 'Swift Ultra Light',
+    fabric_description: 'Four-way stretch Swift Ultra Light fabric is an airy, lightweight fabric woven to wick sweat and provide airflow—seriously, it’s like being in the buff'
+
   },
   {
     name: 'Hotty Hot Short',
@@ -103,7 +129,10 @@ const productSeedData = [
     category: 'Bottoms',
     type: 'Shorts',
     price: '$58.00',
-    description: 'Sweat to your heart\'s content in these lightweight cross-sport shorts that are lined for coverage. They have a secret stash pocket in the liner and a discreet zippered pocket on the back waistband for keys, cards, gels, or cash.'
+    description: 'Sweat to your heart\'s content in these lightweight cross-sport shorts that are lined for coverage. They have a secret stash pocket in the liner and a discreet zippered pocket on the back waistband for keys, cards, gels, or cash.',
+    fabric_name: 'Swift Ultra',
+    fabric_description: 'Woven for strength and no-bulk performance—Swift Ultra fabric is sweat-wicking, four-way stretch and quick drying'
+
   }
 ];
 
@@ -2055,8 +2084,651 @@ const photoSeedData = [
   }
 ];
 
+const fabricSeedData = [
+  {
+    fabric_benefit: 'Incredible Support And Coverage',
+    productId: 1
+  },
+  {
+    fabric_benefit: 'Sweat-Wicking',
+    productId: 1
+  },
+  {
+    fabric_benefit: 'Four-Way Stretch',
+    productId: 1
+  },
+  {
+    fabric_benefit: 'Cool',
+    productId: 1
+  },
+  {
+    fabric_benefit: 'Smooth Handfeel',
+    productId: 1
+  },
+  {
+    fabric_benefit: 'Naturally Breathable',
+    productId: 1
+  },
+  {
+    fabric_benefit: 'Soft And Cozy',
+    productId: 2
+  },
+  {
+    fabric_benefit: 'Naturally Breathable',
+    productId: 2
+  },
+  {
+    fabric_benefit: 'Heat Retention',
+    productId: 2
+  },
+  {
+    fabric_benefit: 'Incredible Support And Coverage',
+    productId: 5
+  },
+  {
+    fabric_benefit: 'Sweat-Wicking',
+    productId: 5
+  },
+  {
+    fabric_benefit: 'Four-Way Stretch',
+    productId: 5
+  },
+  {
+    fabric_benefit: 'Cool',
+    productId: 5
+  },
+  {
+    fabric_benefit: 'Smooth Handfeel',
+    productId: 5
+  },
+  {
+    fabric_benefit: 'Naturally Breathable',
+    productId: 5
+  },
+  {
+    fabric_benefit: 'Incredible Support And Coverage',
+    productId: 6
+  },
+  {
+    fabric_benefit: 'Sweat-Wicking',
+    productId: 6
+  },
+  {
+    fabric_benefit: 'Four-Way Stretch',
+    productId: 6
+  },
+  {
+    fabric_benefit: 'Cool',
+    productId: 6
+  },
+  {
+    fabric_benefit: 'Smooth Handfeel',
+    productId: 6
+  },
+  {
+    fabric_benefit: 'Naturally Breathable',
+    productId: 6
+  },
+  {
+    fabric_benefit: 'Incredible Support And Coverage',
+    productId: 7
+  },
+  {
+    fabric_benefit: 'Sweat-Wicking',
+    productId: 7
+  },
+  {
+    fabric_benefit: 'Four-Way Stretch',
+    productId: 7
+  },
+  {
+    fabric_benefit: 'Cool',
+    productId: 7
+  },
+  {
+    fabric_benefit: 'Smooth Handfeel',
+    productId: 7
+  },
+  {
+    fabric_benefit: 'Naturally Breathable',
+    productId: 7
+  },
+  {
+    fabric_benefit: 'Buttery-Soft Handfeel',
+    productId: 8
+  },
+  {
+    fabric_benefit: 'Lightweight',
+    productId: 8
+  },
+  {
+    fabric_benefit: 'Sweat-Wicking',
+    productId: 8
+  },
+  {
+    fabric_benefit: 'Four-Way Stretch',
+    productId: 8
+  },
+  {
+    fabric_benefit: 'Incredible Support And Coverage',
+    productId: 10
+  },
+  {
+    fabric_benefit: 'Sweat-Wicking',
+    productId: 10
+  },
+  {
+    fabric_benefit: 'Four-Way Stretch',
+    productId: 10
+  },
+  {
+    fabric_benefit: 'Cool',
+    productId: 10
+  },
+  {
+    fabric_benefit: 'Smooth Handfeel',
+    productId: 10
+  },
+  {
+    fabric_benefit: 'Naturally Breathable',
+    productId: 10
+  },
+  {
+    fabric_benefit: 'Buttery-Soft Handfeel',
+    productId: 11
+  },
+  {
+    fabric_benefit: 'Lightweight',
+    productId: 11
+  },
+  {
+    fabric_benefit: 'Sweat-Wicking',
+    productId: 11
+  },
+  {
+    fabric_benefit: 'Four-Way Stretch',
+    productId: 11
+  },
+  {
+    fabric_benefit: 'Four-Way Stretch',
+    productId: 12
+  },
+  {
+    fabric_benefit: 'Lightweight',
+    productId: 12
+  },
+  {
+    fabric_benefit: 'Sweat-Wicking',
+    productId: 12
+  },
+  {
+    fabric_benefit: 'Woven For Airflow',
+    productId: 12
+  },
+  {
+    fabric_benefit: 'Quick Dry',
+    productId: 13
+  },
+  {
+    fabric_benefit: 'No-Bulk Performance',
+    productId: 13
+  },
+  {
+    fabric_benefit: 'Woven For Strength',
+    productId: 13
+  },
+  {
+    fabric_benefit: 'Four-Way Stretch',
+    productId: 13
+  },
+  {
+    fabric_benefit: 'Sweat-Wicking',
+    productId: 13
+  }
+];
+
+const featureSeedData = [
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Yoga, Train',
+    productId: 1
+  },
+  {
+    feature_name: 'Lycra®',
+    feature_description: 'Added Lycra® Fibre For Stretch And Shape Retention',
+    productId: 1
+  },
+  {
+    feature_name: 'Comfortable Waistband',
+    feature_description: 'Lies Flat Against Your Skin And Won\'t Dig In',
+    productId: 1
+  },
+  {
+    feature_name: 'Waistband Storage',
+    feature_description: 'Pocket On The Waistband Holds Your Key Or Card',
+    productId: 1
+  },
+  {
+    feature_name: 'Hugged Sensation',
+    feature_description: 'Engineered To Feel Like A Comfortable Embrace Throughout—It Holds You Close And Moves With You',
+    productId: 1
+  },
+  {
+    feature_name: 'Inseam',
+    feature_description: '28"',
+    productId: 1
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Office Travel Commute',
+    productId: 2
+  },
+  {
+    feature_name: 'Inseam',
+    feature_description: '28"',
+    productId: 2
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Train, Yoga',
+    productId: 3
+  },
+  {
+    feature_name: 'LYCRA®',
+    feature_description: 'Added Lycra® Fibre For Shape Retention',
+    productId: 3
+  },
+  {
+    feature_name: 'Hidden Pocket',
+    feature_description: 'Stash Your Essentials In The Hidden Waistband Pocket',
+    productId: 3
+  },
+  {
+    feature_name: 'High-Rise',
+    feature_description: 'Keeps You Feeling Covered And Secure',
+    productId: 3
+  },
+  {
+    feature_name: 'Hugged Sensation',
+    feature_description: 'Engineered To Feel Like A Comfortable Embrace Throughout—It Holds You Close And Moves With You',
+    productId: 3
+  },
+  {
+    feature_name: 'Inseam',
+    feature_description: '25"',
+    productId: 3
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Run, Train',
+    productId: 4
+  },
+  {
+    feature_name: 'Lycra®',
+    feature_description: 'Added Lycra® Fibre For Stretch And Shape Retention',
+    productId: 4
+  },
+  {
+    feature_name: 'Hidden Pocket',
+    feature_description: 'Stash Your Essentials In The Hidden Waistband Pocket',
+    productId: 4
+  },
+  {
+    feature_name: 'Interior Drawcord',
+    feature_description: 'Cinch The Waist Drawcord To Customize Your Fit',
+    productId: 4
+  },
+  {
+    feature_name: 'High-Rise',
+    feature_description: 'Keeps You Feeling Covered And Secure',
+    productId: 4
+  },
+  {
+    feature_name: 'Naked Sensation',
+    feature_description: 'Engineered To Feel Like Your Go-To, Lightweight, Second-Skin Layer—You\'ll Forget You\'re Wearing This Next-To-Nothing Sensation As You Move',
+    productId: 4
+  },
+  {
+    feature_name: 'Reflective Details',
+    feature_description: 'Intentionally Placed For Visibility In Low Light',
+    productId: 4
+  },
+  {
+    feature_name: 'Inseam',
+    feature_description: '25"',
+    productId: 4
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Run',
+    productId: 5
+  },
+  {
+    feature_name: 'Fit',
+    feature_description: 'Designed To Sit At The Waist With A Second-Skin Fit',
+    productId: 5
+  },
+  {
+    feature_name: 'POCKETS',
+    feature_description: 'Stash Your Gear In Pockets On The Back And Thigh',
+    productId: 5
+  },
+  {
+    feature_name: 'ROOM TO MOVE',
+    feature_description: 'Made To Be Little Looser At The Knee For Comfort And Mobility',
+    productId: 5
+  },
+  {
+    feature_name: 'DROP-IN POCKETS',
+    feature_description: 'Snug Drop-In Pocket Keeps Your Phone In Place',
+    productId: 5
+  },
+  {
+    feature_name: 'Reflective Detail',
+    feature_description: 'Intentionally Placed To Help Keep You Visible In Low Light',
+    productId: 5
+  },
+  {
+    feature_name: 'Inseam',
+    feature_description: '25"',
+    productId: 5
+  },
+  {
+    feature_name: 'Lycra®',
+    feature_description: 'Added Lycra® Fibre For Stretch And Shape Retention',
+    productId: 5
+  },
+  {
+    feature_name: 'STORAGE',
+    feature_description: 'Secure Back Pocket To Store Your Essentials',
+    productId: 5
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Run',
+    productId: 6
+  },
+  {
+    feature_name: 'Lycra®',
+    feature_description: 'Added Lycra® Fibre For Stretch And Shape Retention',
+    productId: 6
+  },
+  {
+    feature_name: 'Interior Drawcord',
+    feature_description: 'Cinch The Waist Drawcord To Customize Your Fit',
+    productId: 6
+  },
+  {
+    feature_name: 'Shine-Bright',
+    feature_description: 'Reflective Detail Helps Keep You On The Radar In Low Light',
+    productId: 6
+  },
+  {
+    feature_name: 'Medium-Rise',
+    feature_description: 'Higher Rise Increases Coverage And Comfort',
+    productId: 6
+  },
+  {
+    feature_name: 'Hugged Sensation',
+    feature_description: 'Engineered To Feel Like A Comfortable Embrace Throughout—It Holds You Close And Moves With You',
+    productId: 6
+  },
+  {
+    feature_name: 'POCKETS',
+    feature_description: 'Multiple Pockets For All Your Essentials',
+    productId: 6
+  },
+  {
+    feature_name: 'Inseam',
+    feature_description: '28"',
+    productId: 6
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Run',
+    productId: 7
+  },
+  {
+    feature_name: 'Low-Bounce Pocket',
+    feature_description: 'Stash Your Keys, Cards Or Phone In Low-Bounce Pockets',
+    productId: 7
+  },
+  {
+    feature_name: 'Three-Pocket Waistband',
+    feature_description: 'Gives You Plenty Of Storage Options',
+    productId: 7
+  },
+  {
+    feature_name: 'Medium-Rise',
+    feature_description: 'For Coverage And Cool Comfort',
+    productId: 7
+  },
+  {
+    feature_name: 'Hugged Sensation',
+    feature_description: 'Engineered To Feel Like A Comfortable Embrace Throughout—It Holds You Close And Moves With You',
+    productId: 7
+  },
+  {
+    feature_name: 'BREATHABILITY',
+    feature_description: 'Strategically Placed Mesh Fabric Provides Ventilation',
+    productId: 7
+  },
+  {
+    feature_name: 'Inseam',
+    feature_description: '22"',
+    productId: 7
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Office Travel Commute',
+    productId: 8
+  },
+  {
+    feature_name: 'LYCRA®',
+    feature_description: 'Added Lycra® Fibre For Shape Retention',
+    productId: 8
+  },
+  {
+    feature_name: 'Comfortable Waistband',
+    feature_description: 'Lies Flat Against Your Skin And Won\'t Dig In',
+    productId: 8
+  },
+  {
+    feature_name: 'POCKETS',
+    feature_description: 'Multiple Pockets For All Your Essentials',
+    productId: 8
+  },
+  {
+    feature_name: 'High-Rise',
+    feature_description: 'Keeps You Feeling Covered And Secure',
+    productId: 8
+  },
+  {
+    feature_name: 'Inseam',
+    feature_description: '23"',
+    productId: 8
+  },
+  {
+    feature_name: 'Naked Sensation',
+    feature_description: 'Engineered To Feel Like Your Go-To, Lightweight, Second-Skin Layer—You\'ll Forget You\'re Wearing This Next-To-Nothing Sensation As You Move',
+    productId: 8
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Training',
+    productId: 9
+  },
+  {
+    feature_name: 'Lycra®',
+    feature_description: 'Added Lycra® Fibre For Stretch And Shape Retention',
+    productId: 9
+  },
+  {
+    feature_name: 'High-Rise',
+    feature_description: 'Keeps You Feeling Covered And Secure',
+    productId: 9
+  },
+  {
+    feature_name: 'Hugged Sensation',
+    feature_description: 'Engineered To Feel Like A Comfortable Embrace Throughout—It Holds You Close And Moves With You',
+    productId: 9
+  },
+  {
+    feature_name: 'Hidden Pocket',
+    feature_description: 'Stash Your Essentials In The Hidden Waistband Pocket',
+    productId: 9
+  },
+  {
+    feature_name: 'Inseam',
+    feature_description: '19"',
+    productId: 9
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Run',
+    productId: 10
+  },
+  {
+    feature_name: 'No Front Seam',
+    feature_description: 'Keeps Camel Toe In Check',
+    productId: 10
+  },
+  {
+    feature_name: 'Reflectivity',
+    feature_description: 'Flip Up The Cuffs To Expose Reflective Details',
+    productId: 10
+  },
+  {
+    feature_name: 'Waistband Storage',
+    feature_description: 'Pocket On The Waistband Holds Your Key Or Card',
+    productId: 10
+  },
+  {
+    feature_name: 'High-Rise',
+    feature_description: 'Keeps You Feeling Covered And Secure',
+    productId: 10
+  },
+  {
+    feature_name: 'Inseam',
+    feature_description: '23"',
+    productId: 10
+  },
+  {
+    feature_name: 'Hugged Sensation',
+    feature_description: 'Engineered To Feel Like A Comfortable Embrace Throughout—It Holds You Close And Moves With You',
+    productId: 10
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Yoga',
+    productId: 11
+  },
+  {
+    feature_name: 'LYCRA®',
+    feature_description: 'Added Lycra® Fibre For Shape Retention',
+    productId: 11
+  },
+  {
+    feature_name: 'Comfortable Waistband',
+    feature_description: 'Lies Flat Against Your Skin And Won\'t Dig In',
+    productId: 11
+  },
+  {
+    feature_name: 'Hidden Pocket',
+    feature_description: 'Hidden Waistband Pocket Holds A Key',
+    productId: 11
+  },
+  {
+    feature_name: 'High-Rise',
+    feature_description: 'Keeps You Feeling Covered And Secure',
+    productId: 11
+  },
+  {
+    feature_name: 'Naked Sensation',
+    feature_description: 'Engineered To Feel Like Your Go-To, Lightweight, Second-Skin Layer—You\'ll Forget You\'re Wearing This Next-To-Nothing Sensation As You Move',
+    productId: 11
+  },
+  {
+    feature_name: 'INSEAM',
+    feature_description: '4"',
+    productId: 11
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Run',
+    productId: 12
+  },
+  {
+    feature_name: 'Lycra®',
+    feature_description: 'Added Lycra® Fibre For Stretch And Shape Retention',
+    productId: 12
+  },
+  {
+    feature_name: 'Secured Pockets',
+    feature_description: 'Secure Your Stuff In The Exterior Zippered Pocket',
+    productId: 12
+  },
+  {
+    feature_name: 'Drawcord Waist',
+    feature_description: 'Internal Drawcord Lets You Customize Your Fit',
+    productId: 12
+  },
+  {
+    feature_name: 'Low-Rise',
+    feature_description: 'Keeps You Feeling Cool Yet Covered',
+    productId: 12
+  },
+  {
+    feature_name: 'INSEAM',
+    feature_description: '4"',
+    productId: 12
+  },
+  {
+    feature_name: 'STORAGE',
+    feature_description: 'Easy-Access Gel Pockets On The Waistband',
+    productId: 12
+  },
+  {
+    feature_name: 'Designed For',
+    feature_description: 'Run',
+    productId: 13
+  },
+  {
+    feature_name: 'Secret Pocket',
+    feature_description: 'Stash Your Stuff In The Secret Liner Pocket',
+    productId: 13
+  },
+  {
+    feature_name: 'Reflective Details',
+    feature_description: 'Intentionally Placed For Visibility In Low Light',
+    productId: 13
+  },
+  {
+    feature_name: 'No-Dig Waistband',
+    feature_description: 'Soft, No-Dig Waistband Lies Flat Against Your Skin',
+    productId: 13
+  },
+  {
+    feature_name: 'Lycra®',
+    feature_description: 'Added Lycra® Fibre For Stretch And Shape Retention',
+    productId: 13
+  },
+  {
+    feature_name: 'Relaxed Sensation',
+    feature_description: 'Gives You The Ultimate Feeling Of Nothing In Your Way—It Sits Away From Your Body To Give You Maximum Room To Move',
+    productId: 13
+  },
+  {
+    feature_name: 'INSEAM',
+    feature_description: '2.5"',
+    productId: 13
+  }
+];
+
 connection.sync({ force: false })
   .then(() => Product.bulkCreate(productSeedData))
   .then(() => Color.bulkCreate(colorSeedData))
   .then(() => Photo.bulkCreate(photoSeedData))
+  .then(() => Fabric.bulkCreate(fabricSeedData))
+  .then(() => Feature.bulkCreate(featureSeedData))
   .then(() => console.log('database has been seeded'));

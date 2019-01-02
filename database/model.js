@@ -9,7 +9,9 @@ const Product = connection.define('product', {
   category: {type: Sequelize.STRING, allowNull: false},
   type: {type: Sequelize.STRING, allowNull: false},
   price: {type: Sequelize.STRING, allowNull: false},
-  description: {type: Sequelize.TEXT, allowNull: false}
+  description: {type: Sequelize.TEXT, allowNull: false},
+  fabric_name: {type: Sequelize.STRING, allowNull: true},
+  fabric_description: {type: Sequelize.STRING, allowNull: true}
 },
 {
   timestamps: false
@@ -32,13 +34,34 @@ const Photo = connection.define('photo', {
   timestamps: false
 });
 
+const Fabric = connection.define('fabric', {
+  id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
+  fabric_benefit: {type: Sequelize.STRING, allowNull: false}
+},
+{
+  timestamps: false
+});
+
+const Feature = connection.define('feature', {
+  id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
+  feature_name: {type: Sequelize.STRING, allowNull: false},
+  feature_description: {type: Sequelize.STRING, allowNull: false}
+},
+{
+  timestamps: false
+});
+
 Color.belongsTo(Product);
 Product.hasMany(Color);
 Photo.belongsTo(Color);
 Color.hasMany(Photo);
+Fabric.belongsTo(Product);
+Product.hasMany(Fabric);
+Feature.belongsTo(Product);
+Product.hasMany(Feature);
 
 connection.sync({ force: false })
   .then(() => console.log('synced with database'))
   .catch(err => console.error('error syncing database', err));
 
-module.exports = { connection, Product, Color, Photo };
+module.exports = { connection, Product, Color, Photo, Fabric, Feature };

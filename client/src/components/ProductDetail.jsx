@@ -19,8 +19,17 @@ const ProductDetail = props => {
         onSwatchClick={props.onSwatchClick}
         onSwatchSelect={props.onSwatchSelect}
       />
-      <DetailButtons />
-      <DetailDropdowns />
+      <DetailButtons
+        size={props.size}
+        onSizeDropdown={props.onSizeDropdown}
+        onSizeSelect={props.onSizeSelect} 
+      />
+      <DetailDropdowns
+        product={props.product}
+        fabrics={props.fabrics}
+        features={props.features}
+        onDropdownClick={props.onDropdownClick}
+      />
     </div>
   );
 };

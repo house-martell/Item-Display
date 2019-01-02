@@ -15,23 +15,33 @@ class App extends React.Component {
         category: 'Bottoms',
         type: 'Pants', 
         price: '$98.00', 
-        description: 'These versatile high-rise tights were designed to fit like a second skin—perfect for yoga or the gym. Made with Full-On® Luxtreme fabric that offers great support and coverage with a cool, smooth feel.'
+        description: 'These versatile high-rise tights were designed to fit like a second skin—perfect for yoga or the gym. Made with Full-On® Luxtreme fabric that offers great support and coverage with a cool, smooth feel.',
+        fabric_name: 'Full-On® Luxtreme',
+        fabric_description: 'Four-way stretch Full-On® Luxtreme fabric is sweat-wicking and offers great support and coverage with a cool, smooth feel'    
       },
       colors: [],
       currentColor: '',
       photos: [],
-      currentPhoto: ''
+      currentPhoto: '',
+      fabrics: [],
+      features: [],
+      size: 'Select Size'
     };
 
     this.getProduct = this.getProduct.bind(this);
     this.getColors = this.getColors.bind(this);
     this.selectCurrentColor = this.selectCurrentColor.bind(this);
     this.getPhotos = this.getPhotos.bind(this);
+    this.getFabrics = this.getFabrics.bind(this);
+    this.getFeatures = this.getFeatures.bind(this);
 
     this.onSwatchClick = this.onSwatchClick.bind(this);
     this.onSwatchSelect = this.onSwatchSelect.bind(this);
     this.onPhotoClick = this.onPhotoClick.bind(this);
     this.onPhotoSelect = this.onPhotoSelect.bind(this);
+    this.onDropdownClick = this.onDropdownClick.bind(this);
+    this.onSizeDropdown = this.onSizeDropdown.bind(this);
+    this.onSizeSelect = this.onSizeSelect.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +54,8 @@ class App extends React.Component {
       .then(({ data }) => {
         this.setState({ currentProduct: data });
         this.getColors(productId);
+        this.getFabrics(productId);
+        this.getFeatures(productId);
         console.log('this.state.currentProduct', this.state.currentProduct);
       })
       .catch(err => console.error('error getting products', err));
@@ -80,6 +92,24 @@ class App extends React.Component {
       .catch(err => console.error('error getting photos', err));
   }
 
+  getFabrics(productId) {
+    axios.get(`api/products/${productId}/fabrics`)
+      .then(({ data }) => {
+        this.setState({ fabrics: data });
+        console.log('this.state.fabrics', this.state.fabrics);
+      })
+      .catch(err => console.error('error getting fabrics', err));
+  }
+
+  getFeatures(productId) {
+    axios.get(`api/products/${productId}/features`)
+      .then(({ data }) => {
+        this.setState({ features: data });
+        console.log('this.state.features', this.state.features);
+      })
+      .catch(err => console.error('error getting features', err));
+  }
+
   onSwatchClick(colorId) {
     this.selectCurrentColor(colorId);
   }
@@ -88,7 +118,8 @@ class App extends React.Component {
     let swatches = document.getElementsByClassName('swatch');
     swatches = Array.prototype.slice.call(swatches);
     swatches.forEach(swatch => {
-      swatch.classList.remove('init-swatch', 'selected-swatch');
+      swatch.parentNode.classList.remove('init-swatch');
+      swatch.classList.remove('selected-swatch');
     });
     e.target.classList.add('selected-swatch');
   }
@@ -101,9 +132,57 @@ class App extends React.Component {
     let photos = document.getElementsByClassName('photo-list');
     photos = Array.prototype.slice.call(photos);
     photos.forEach(photo => {
+      photo.parentNode.parentNode.classList.remove('init-photo');
       photo.classList.remove('selected-photo');
     });
     e.target.classList.add('selected-photo');
+  }
+
+  onDropdownClick(e) {
+    let dropdowns = document.getElementsByClassName('dropdown');
+    dropdowns = Array.prototype.slice.call(dropdowns);
+    dropdowns.forEach(dropdown => {
+      if (dropdown.nextElementSibling !== e.target.nextElementSibling) {
+        dropdown.nextElementSibling.style.display = 'none';
+        dropdown.style.borderBottom = '0.5px solid #e0e0e0';
+        dropdown.classList.remove('minus');
+        dropdown.classList.add('plus');
+      }
+    });
+    if (e.target.nextElementSibling.style.display === 'block') {
+      e.target.nextElementSibling.style.display = 'none';
+      e.target.style.borderBottom = '0.5px solid #e0e0e0';
+      e.target.classList.remove('minus');
+      e.target.classList.add('plus');
+    } else {
+      e.target.nextElementSibling.style.display = 'block';
+      e.target.nextElementSibling.style.borderBottom = '0.5px solid #e0e0e0';
+      e.target.style.borderBottom = 'none';
+      e.target.classList.remove('plus');
+      e.target.classList.add('minus');
+    }
+  }
+
+  onSizeDropdown() {
+    let sizes = document.getElementsByClassName('sizes-list');
+    sizes = Array.prototype.slice.call(sizes);
+    sizes.forEach(size => {
+      if (!size.classList.contains('open')) {
+        size.classList.add('open');
+      } else {
+        size.classList.remove('open');
+      }
+    });
+  }
+
+  onSizeSelect(e) {
+    this.setState({ size: e.target.getAttribute('name') });
+    console.log(e.target.getAttribute('name'));
+    let sizes = document.getElementsByClassName('sizes-list');
+    sizes = Array.prototype.slice.call(sizes);
+    sizes.forEach(size => {
+      size.classList.remove('open');
+    });
   }
 
   render() {
@@ -114,6 +193,7 @@ class App extends React.Component {
         </div>
         <br/>
         <div className="container flex-row">
+          <div className="parent"></div>
           <PhotoList 
             photos={this.state.photos} 
             onPhotoClick={this.onPhotoClick}
@@ -125,10 +205,16 @@ class App extends React.Component {
           <ProductDetail 
             product={this.state.currentProduct} 
             photos={this.state.photos} 
-            colors={this.state.colors} 
+            colors={this.state.colors}
+            fabrics={this.state.fabrics}
+            features={this.state.features}
+            size={this.state.size}
             currentColor={this.state.currentColor}
             onSwatchClick={this.onSwatchClick}
             onSwatchSelect={this.onSwatchSelect}
+            onDropdownClick={this.onDropdownClick}
+            onSizeDropdown={this.onSizeDropdown}
+            onSizeSelect={this.onSizeSelect}
           />
         </div>
       </div>
@@ -137,27 +223,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-
-
-// ** below not worth -> too long to render? just hard coded it
-// componentWillMount() {
-//   axios.get('api/products/1')
-//   .then(({ data }) => {
-//     console.log('currentProduct', this.state.currentProduct)
-//     console.log('data', data);
-//     this.setState({ currentProduct: data });
-//   })
-// }
-
-
-// ** below is uneccessary wtf was i thinking
-// selectCurrentPhoto(photoId) {  // on click or scroll to photo
-//   axios.get(`api/products/${this.state.currentProduct.id}/colors/${this.state.currentColor.id}/photos/${photoId}`)
-//     .then(({ data }) => {
-//       this.setState({ currentPhoto: data });
-//       console.log('this.state.currentPhoto', this.state.currentPhoto);
-//     })
-//     .catch(err => console.error('error selecting current photo', err));
-// }
