@@ -1,12 +1,15 @@
 import React from 'react';
+import classNames from 'classnames';
+
+import styles from '../../dist/styles/photoScroll.css';
 
 const PhotoScroll = props => {
   return (
-    <div className="photo-scroll-container flex-column">
+    <div className={classNames(styles.photoScrollContainer, styles.flexColumn)}>
       {props.photos.map((photo, i) => {
         return (
           <div id={photo.id} key={i}>
-            <img className="photo-scroll" src={photo.photo_url}/>
+            <img className={styles.photoScroll} src={photo.photo_url}/>
           </div>
         );
       })}

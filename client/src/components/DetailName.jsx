@@ -1,35 +1,37 @@
 import React from 'react';
 
+import styles from '../../dist/styles/detailName.css';
+
 const DetailName = props => {
   if (props.product.nameline2) {
     return (
-      <div className="detail-name-container">
+      <div className={styles.detailNameContainer}>
         <h1>
           {props.product.name}
           <br/>
           {props.product.nameline2}
         </h1>
         <br/>
-        <div className="total-price">
-          <span className="price">
+        <div className={styles.totalPrice}>
+          <span className={styles.price}>
             {props.product.price}
           </span>
-          <span className="currency"> USD</span>
+          <span className={styles.currency}> USD</span>
         </div>
       </div>
     );
   } else {
     return (
-      <div className="detail-name-container">
+      <div className={styles.detailNameContainer}>
         <h1>
           {props.product.name}
         </h1>
         <br/>
-        <div className="total-price">
-          <span className="price">
+        <div className={styles.totalPrice}>
+          <span className={styles.price}>
             {props.product.price}
           </span>
-          <span className="currency"> USD</span>
+          <span className={styles.currency}> USD</span>
         </div>
       </div>
     );

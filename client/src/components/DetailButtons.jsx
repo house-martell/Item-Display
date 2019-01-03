@@ -1,43 +1,46 @@
 import React from 'react';
+import classNames from 'classnames';
+
+import styles from '../../dist/styles/detailButtons.css';
 
 const DetailButtons = props => {
   return (
-    <div className="detail-buttons-container flex-column">
-      <div className="flex-row space-between">
-        <div className="size-dropdown-container flex-column">
-          <div className="size-dropdown clickable" onClick={props.onSizeDropdown}>
+    <div className={classNames(styles.detailButtonsContainer, styles.flexColumn)}>
+      <div className={classNames(styles.flexRow, styles.spaceBetween)}>
+        <div className={classNames(styles.sizeDropdownContainer, styles.flexColumn)}>
+          <div className={classNames(styles.sizeDropdown, styles.clickable)} onClick={props.onSizeDropdown}>
             Size
-            <span className="select-size">{props.size}</span>
+            <span className={styles.selectSize}>{props.size}</span>
           </div>
-          <div className="sizes-list">
-            <div name="2" className="sizes clickable" onClick={props.onSizeSelect}>2</div>
-            <div name="4" className="sizes clickable" onClick={props.onSizeSelect}>4</div>
-            <div name="6" className="sizes clickable" onClick={props.onSizeSelect}>6</div>
-            <div name="8" className="sizes clickable" onClick={props.onSizeSelect}>8</div>
-            <div name="10" className="sizes clickable" onClick={props.onSizeSelect}>10</div>
-            <div name="12" className="sizes clickable" onClick={props.onSizeSelect}>12</div>
-            <div name="14" className="sizes clickable" onClick={props.onSizeSelect}>14</div>
+          <div className={styles.sizesList}>
+            <div name="2" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>2</div>
+            <div name="4" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>4</div>
+            <div name="6" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>6</div>
+            <div name="8" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>8</div>
+            <div name="10" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>10</div>
+            <div name="12" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>12</div>
+            <div name="14" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>14</div>
           </div>
         </div>
         <br/>
-        <div className="size-guide clickable">
+        <div className={classNames(styles.sizeGuide, styles.clickable)}>
           Size guide
         </div>
       </div>
-      <div className="button-box red-btn clickable">Add to bag</div>
-      <div className="button-box white-btn clickable">Find in store</div>
+      <div className={classNames(styles.buttonBox, styles.redBtn, styles.clickable)}>Add to bag</div>
+      <div className={classNames(styles.buttonBox, styles.whiteBtn, styles.clickable)}>Find in store</div>
       <br/>
-      <div className="flex-row space-around">
-        <div className="clickable">
-          <img className="icon" src="https://s3-us-west-1.amazonaws.com/fec-lulumelon/icons/icon_share.png"/><span className="icon-text"> Share</span>
+      <div className={classNames(styles.flexRow, styles.spaceAround)}>
+        <div className={styles.clickable}>
+          <img className={styles.icon} src="https://s3-us-west-1.amazonaws.com/fec-lulumelon/icons/icon_share.png"/><span className={styles.iconText}> Share</span>
         </div>
-        <span className="vertical-line"></span>
-        <div className="clickable">
-          <img className="icon" src="https://s3-us-west-1.amazonaws.com/fec-lulumelon/icons/icon_livechat.png"/><span className="icon-text"> Live Chat</span>
+        <span className={styles.verticalLine}></span>
+        <div className={styles.clickable}>
+          <img className={styles.icon} src="https://s3-us-west-1.amazonaws.com/fec-lulumelon/icons/icon_livechat.png"/><span className={styles.iconText}> Live Chat</span>
         </div>
-        <span className="vertical-line"></span>
-        <div className="clickable">
-          <img className="icon" src="https://s3-us-west-1.amazonaws.com/fec-lulumelon/icons/icon_reviews.png"/><span className="icon-text"> Reviews</span>
+        <span className={styles.verticalLine}></span>
+        <div className={styles.clickable}>
+          <img className={styles.icon} src="https://s3-us-west-1.amazonaws.com/fec-lulumelon/icons/icon_reviews.png"/><span className={styles.iconText}> Reviews</span>
         </div>
       </div>
       <br/>

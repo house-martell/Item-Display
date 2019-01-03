@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import classNames from 'classnames';
 
 import Navigation from './Navigation.jsx';
 import PhotoList from './PhotoList.jsx';
 import PhotoScroll from './PhotoScroll.jsx';
 import ProductDetail from './ProductDetail.jsx';
+import styles from '../../dist/styles/app.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -116,13 +118,16 @@ class App extends React.Component {
   }
 
   onSwatchSelect(e) {
-    let swatches = document.getElementsByClassName('swatch');
+    let swatches = document.getElementsByClassName(e.target.className);
     swatches = Array.prototype.slice.call(swatches);
+    // let initSwatch = document.getElementsByClassName(e.target.parentNode.className);
+    // initSwatch = Array.prototype.slice.call(initSwatch).pop().className;
+    // console.log('initswatch', initSwatch)
     swatches.forEach(swatch => {
-      swatch.parentNode.classList.remove('init-swatch');
-      swatch.classList.remove('selected-swatch');
+      swatch.parentNode.classList = '';
+      swatch.classList.remove(styles['selectedSwatch']);
     });
-    e.target.classList.add('selected-swatch');
+    e.target.classList.add(styles['selectedSwatch']);
   }
 
   onPhotoClick(photo) {
@@ -130,17 +135,17 @@ class App extends React.Component {
   }
 
   onPhotoSelect(e) {
-    let photos = document.getElementsByClassName('photo-list');
+    let photos = document.getElementsByClassName(e.target.className);
     photos = Array.prototype.slice.call(photos);
     photos.forEach(photo => {
-      photo.parentNode.parentNode.classList.remove('init-photo');
-      photo.classList.remove('selected-photo');
+      photo.parentNode.parentNode.classList = '';
+      photo.classList.remove(styles['selectedPhoto']);
     });
-    e.target.classList.add('selected-photo');
+    e.target.classList.add(styles['selectedPhoto']);
   }
 
   onDropdownClick(e) {
-    let dropdowns = document.getElementsByClassName('dropdown');
+    let dropdowns = document.getElementsByClassName(e.target.className);
     dropdowns = Array.prototype.slice.call(dropdowns);
     dropdowns.forEach(dropdown => {
       if (dropdown.nextElementSibling !== e.target.nextElementSibling) {
@@ -165,7 +170,7 @@ class App extends React.Component {
   }
 
   onSizeDropdown() {
-    let sizes = document.getElementsByClassName('sizes-list');
+    let sizes = document.getElementsByClassName('sizesList');
     sizes = Array.prototype.slice.call(sizes);
     sizes.forEach(size => {
       if (!size.classList.contains('open')) {
@@ -179,7 +184,7 @@ class App extends React.Component {
   onSizeSelect(e) {
     this.setState({ size: e.target.getAttribute('name') });
     console.log(e.target.getAttribute('name'));
-    let sizes = document.getElementsByClassName('sizes-list');
+    let sizes = document.getElementsByClassName('sizesList');
     sizes = Array.prototype.slice.call(sizes);
     sizes.forEach(size => {
       size.classList.remove('open');
@@ -188,15 +193,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="flex-column">
+      <div className={styles.flexColumn}>
         <Navigation />
-        <br/>
-        <div className="directory">
-          <span className="clickable">Women</span>{' > '}<span className="clickable">{this.state.currentProduct.category}</span>{' > '}<span className="clickable">{this.state.currentProduct.type}</span>
+        <br className={styles.break}/>
+        <br className={styles.break}/>
+        <div className={styles.directory}>
+          <span className={styles.clickable}>Women</span>{' > '}<span className={styles.clickable}>{this.state.currentProduct.category}</span>{' > '}<span className={styles.clickable}>{this.state.currentProduct.type}</span>
         </div>
         <br/>
-        <div className="container flex-row">
-          <div className="parent"></div>
+        <div className={classNames(styles.flexRow, styles.container)}>
+          <div className={styles.parent}></div>
           <PhotoList 
             photos={this.state.photos} 
             onPhotoClick={this.onPhotoClick}

@@ -1,14 +1,14 @@
 /* == fonts == */
 
-@font-face {
+/* @font-face {
   font-family: "Lululemon Light";
-  src: url("LululemonLightFont.woff2") format("woff2");
+  src: url("../LululemonLightFont.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Lululemon Heavy";
-  src: url("LululemonHeavyFont.woff2") format("woff2");
-}
+  src: url("../LululemonHeavyFont.woff2") format("woff2");
+} */
 
 body {
   font-family: "Lululemon Light";
@@ -38,198 +38,12 @@ body {
   justify-content: space-between;
 }
 
-
-
 /* == components below == */
 
 .clickable {
   cursor: pointer;
 }
 
-.directory {
-  margin: 0 12px; 
-}
-
-
-/* == navigation == */
-
-.nav {
-  height: 70px;
-  width: 100%;
-  background-color: #fafafa;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  justify-content: space-between;
-}
-
-.logo {
-  width: 38px;
-  height: 38px;
-  padding: 16px;
-}
-
-.navDirectory {
-  width: 524px;
-  align-items: center;
-  padding-left: 26px;
-}
-
-.navSelection {
-  font-family: "Lululemon Heavy";
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-}
-
-.signIn {
-  text-transform: uppercase;
-  border-right: 1px solid #bcbec0;
-  padding-right: 20px;
-  padding-bottom: 4px;
-  margin-top: 4px;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-}
-
-.navButtons {
-  align-items: center;
-}
-
-.search {
-  width: 25px;
-  height: 25px;
-  margin: 20px;
-}
-
-.shoppingBag {
-  width: 25px;
-  height: 25px;
-  margin-right: 20px;
-}
-
-.dropMenu {
-  display: none;
-  width: 25px;
-  height: 25px;
-  margin-right: 20px;
-}
-
-/* == photo list == */
-
-.parent {
-  max-width: 95px !important;
-  min-width: 95px !important;
-  display: inline-block !important;
-}
-
-.photoListContainer {
-  position: fixed;
-  width: 94px;
-  left: 12px;
-}
-
-.photoList {
-  width: 70px;
-  height: 84px;
-  margin: 4px 12px;
-  opacity: 0.3;
-  transition: opacity .3s ease 0s;
-}
-
-.selectedPhoto {
-  opacity: 1;
-}
-
-.initPhoto:first-of-type img {
-  opacity: 1;
-}
-
-/* == photo scroll == */
-
-.photoScrollContainer {
-  margin: 0 20px;
-  position: relative;
-}
-
-.photoScroll {
-  max-width: 50vw;
-  height: auto;
-  margin: 8px auto;
-}
-
-/* == product detail below == */
-
-.productDetailContainer {
-  max-width: 40vw;
-  min-width: 320px;
-  margin: 0 24px;
-  position: -webkit-sticky;
-  position: sticky;
-  bottom: 20px;
-  align-self: flex-end;
-}
-
-/* == detail description == */
-
-h1 {
-  margin: 0;
-  font-weight: normal;
-}
-
-h2 {
-  font-weight: normal;
-  font-size: 20px;
-}
-
-p {
-  margin-bottom: 20px;
-}
-
-.price {
-  font-size: 20px;
-}
-
-.currency {
-  font-size: 14px;
-}
-
-.horizontalLine {
-  border: 0.5px solid #e0e0e0;
-  padding: 0 !important;
-}
-
-/* == detail colors == */
-
-.swatch {
-  width: 50px;
-  height: 25px;
-  padding: 3px;
-  margin: 4px 10px;
-  border: 0.75px solid white;
-  outline: 1px solid #e0e0e0;
-  outline-offset: -4px;
-}
-
-.swatch:first-child {
-  margin-left: 0;
-}
-
-.swatchName {
-  font-size: 14px;
-}
-
-.selectedSwatch {
-  border: 1px solid black;
-}
-
-.initSwatch:first-of-type img {
-  border: 1px solid black;
-}
-
-.smallColors {
-  display: none;
-}
 
 /* == detail buttons == */
 
@@ -338,107 +152,9 @@ p {
   vertical-align: bottom;
 }
 
-/* == small photo scroll == */
-
 .smallPhotoScrollContainer {
   display: none;
 }
-
-/* == detail dropdowns == */
-
-.dropdown {
-  background-color: white;
-  padding: 18px 20px;
-  margin-top: 14px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  /* transition: 0.4s; */
-  font-size: 17px;
-  border-bottom: 0.5px solid #e0e0e0;
-}
-
-.plus:after {
-  content: '\002795';
-  font-size: 12px;
-  float: right;
-  margin-left: 5px;
-}
-
-.minus:after {
-  content: '\002796';
-  font-size: 12px;
-  float: right;
-  margin-left: 5px;
-}
-
-.dropdownInfo {
-  background-color: white;
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  max-height: 1000px;
-  transition: max-height .85s cubic-bezier(.09,-.09,.02,1.46);
-}
-
-.dropdownInfo div {
-  padding: 8px;
-}
-
-.dropdownInfo img {
-  padding-right: 10px;
-}
-
-.fabricBenefit {
-  width: 45%;
-  display: inline-block;
-  padding-left: 0 !important;
-}
-
-.features {
-  padding: 0 !important;
-}
-
-.featureName {
-  padding-left: 0 !important;
-  width: 100%;
-}
-
-.featureDescription {
-  padding-left: 0 !important;
-  width: 100%;
-}
-
-.careIcon {
-  width: 18px;
-  height: 18px;
-  vertical-align: bottom;
-}
-
-.careIconText {
-  vertical-align: center;
-}
-
-.animated {
-  animation-duration: 2s;
-  animation-fill-mode: both;
-}
-
-@keyframes bounce {
-  10%, 60%, 100% {transform: translateY(0);}
-  10% {transform: translateY(-12px);}
-  60% {transform: translateY(0);}
-}
-
-.bounce {
-  animation-name: bounce;
-}
-
-
-
-
-
 
 
 /* == media == */

@@ -1,27 +1,30 @@
 import React from 'react';
+import classNames from 'classnames';
+
+import styles from '../../dist/styles/detailColors.css';
 
 const DetailColors = props => {
   return (
-    <div className="detail-colors-container">
-      <div className="small-colors flex-row">
-        <div className="small-colors-number">
+    <div className={styles.detailColorsContainer}>
+      <div className={classNames(styles.smallColors, styles.flexRow)}>
+        <div className={styles.smallColorsNumber}>
           {`${props.colors.length} colours`}
         </div>
-        <div className="small-colors-name">
+        <div className={styles.smallColorsName}>
           {`Selected: ${props.currentColor.name}`}
         </div>
       </div>
-      <div className="swatch-container flex-row wrap">
+      <div className={classNames(styles.swatchContainer, styles.flexRow, styles.wrap)}>
         {props.colors.map((color, i) => {
           return (
-            <div className="init-swatch" key={i} onClick={() => props.onSwatchClick(color.id)}>
-              <img onClick={props.onSwatchSelect} className="swatch clickable" src={color.swatch_url}/>
+            <div className={styles.initSwatch} key={i} onClick={() => props.onSwatchClick(color.id)}>
+              <img onClick={props.onSwatchSelect} className={classNames(styles.swatch, styles.clickable)} src={color.swatch_url}/>
             </div>
           );
         })}
         <br/>
       </div>
-      <div className="swatch-name">
+      <div className={styles.swatchName}>
         {props.currentColor.name}
       </div>
       <br/>

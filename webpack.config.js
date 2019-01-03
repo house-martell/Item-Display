@@ -1,4 +1,6 @@
 const path = require('path');
+const combineLoaders = require('webpack-combine-loaders');
+
 module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, './client/src/'),
@@ -15,6 +17,24 @@ module.exports = {
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react']
         }
+      },
+      {
+        test: /\.css$/,
+        loader: combineLoaders([
+          {
+            loader: 'style-loader'
+          }, {
+            loader: 'css-loader',
+            query: {
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            }
+          }
+        ])
+      },
+      { 
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000' 
       }
     ]
   },
