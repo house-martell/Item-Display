@@ -50,6 +50,71 @@ body {
   margin: 0 12px; 
 }
 
+
+/* == navigation == */
+
+.nav {
+  height: 70px;
+  width: 100%;
+  background-color: #fafafa;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 38px;
+  height: 38px;
+  padding: 16px;
+}
+
+.nav-directory {
+  width: 524px;
+  align-items: center;
+  padding-left: 26px;
+}
+
+.nav-selection {
+  font-family: "Lululemon Heavy";
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.sign-in {
+  text-transform: uppercase;
+  border-right: 1px solid #bcbec0;
+  padding-right: 20px;
+  padding-bottom: 4px;
+  margin-top: 4px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.nav-buttons {
+  align-items: center;
+}
+
+.search {
+  width: 25px;
+  height: 25px;
+  margin: 20px;
+}
+
+.shopping-bag {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+
+.drop-menu {
+  display: none;
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+
 /* == photo list == */
 
 .parent {
@@ -142,6 +207,8 @@ p {
   padding: 3px;
   margin: 4px 10px;
   border: 0.75px solid white;
+  outline: 1px solid #e0e0e0;
+  outline-offset: -4px;
 }
 
 .swatch:first-child {
@@ -383,6 +450,29 @@ p {
 
   .directory {
     display: none;
+  }
+
+  .nav {
+    height: 58px;
+    border-bottom: 0.5px solid #e0e0e0;
+  }
+
+  .nav-directory {
+    display: none;
+  }
+
+  .logo {
+    width: 28px;
+    height: 28px;
+    padding: 15px;
+  }
+
+  .sign-in {
+    display: none;
+  }
+
+  .drop-menu {
+    display: block;
   }
 
   .photo-list-container {

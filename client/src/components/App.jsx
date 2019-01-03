@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+import Navigation from './Navigation.jsx';
 import PhotoList from './PhotoList.jsx';
 import PhotoScroll from './PhotoScroll.jsx';
 import ProductDetail from './ProductDetail.jsx';
@@ -188,6 +189,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="flex-column">
+        <Navigation />
+        <br/>
         <div className="directory">
           <span className="clickable">Women</span>{' > '}<span className="clickable">{this.state.currentProduct.category}</span>{' > '}<span className="clickable">{this.state.currentProduct.type}</span>
         </div>
