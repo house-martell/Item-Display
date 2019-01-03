@@ -97,6 +97,7 @@ body {
 
 .product-detail-container {
   max-width: 40vw;
+  min-width: 320px;
   margin: 0 24px;
   position: -webkit-sticky;
   position: sticky;
@@ -164,15 +165,6 @@ p {
 }
 
 /* == detail buttons == */
-
-/* select {
-  border:none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -ms-appearance: none;
-  width: 240px;
-} */
 
 .icon {
   width: 24px;

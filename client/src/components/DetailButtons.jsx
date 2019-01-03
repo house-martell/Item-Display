@@ -10,13 +10,13 @@ const DetailButtons = props => {
             <span className="select-size">{props.size}</span>
           </div>
           <div className="sizes-list">
-            <div name="2" className="sizes" onClick={props.onSizeSelect}>2</div>
-            <div name="4" className="sizes" onClick={props.onSizeSelect}>4</div>
-            <div name="6" className="sizes" onClick={props.onSizeSelect}>6</div>
-            <div name="8" className="sizes" onClick={props.onSizeSelect}>8</div>
-            <div name="10" className="sizes" onClick={props.onSizeSelect}>10</div>
-            <div name="12" className="sizes" onClick={props.onSizeSelect}>12</div>
-            <div name="14" className="sizes" onClick={props.onSizeSelect}>14</div>
+            <div name="2" className="sizes clickable" onClick={props.onSizeSelect}>2</div>
+            <div name="4" className="sizes clickable" onClick={props.onSizeSelect}>4</div>
+            <div name="6" className="sizes clickable" onClick={props.onSizeSelect}>6</div>
+            <div name="8" className="sizes clickable" onClick={props.onSizeSelect}>8</div>
+            <div name="10" className="sizes clickable" onClick={props.onSizeSelect}>10</div>
+            <div name="12" className="sizes clickable" onClick={props.onSizeSelect}>12</div>
+            <div name="14" className="sizes clickable" onClick={props.onSizeSelect}>14</div>
           </div>
         </div>
         <br/>
