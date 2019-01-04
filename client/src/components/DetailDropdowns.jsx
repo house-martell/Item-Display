@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from '../../dist/styles/detailDropdowns.css';
+import styles from '../../dist/styles/app.css';
 
 const DetailDropdowns = props => {
   if (props.fabrics.length > 0) {

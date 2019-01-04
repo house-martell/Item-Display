@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../dist/styles/detailDescription.css';
+import styles from '../../dist/styles/app.css';
 
 const DetailDescription = props => {
   return (

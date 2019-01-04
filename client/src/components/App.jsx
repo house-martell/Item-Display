@@ -125,6 +125,7 @@ class App extends React.Component {
     // console.log('initswatch', initSwatch)
     swatches.forEach(swatch => {
       swatch.parentNode.classList = '';
+      console.log(swatch.parentNode);
       swatch.classList.remove(styles['selectedSwatch']);
     });
     e.target.classList.add(styles['selectedSwatch']);
@@ -151,43 +152,41 @@ class App extends React.Component {
       if (dropdown.nextElementSibling !== e.target.nextElementSibling) {
         dropdown.nextElementSibling.style.display = 'none';
         dropdown.style.borderBottom = '0.5px solid #e0e0e0';
-        dropdown.classList.remove('minus');
-        dropdown.classList.add('plus');
+        dropdown.classList.remove(styles['minus']);
+        dropdown.classList.add(styles['plus']);
+        console.log('class names', dropdown.classList);
       }
     });
     if (e.target.nextElementSibling.style.display === 'block') {
       e.target.nextElementSibling.style.display = 'none';
       e.target.style.borderBottom = '0.5px solid #e0e0e0';
-      e.target.classList.remove('minus');
-      e.target.classList.add('plus');
+      e.target.classList.remove(styles['minus']);
+      e.target.classList.add(styles['plus']);
     } else {
       e.target.nextElementSibling.style.display = 'block';
       e.target.nextElementSibling.style.borderBottom = '0.5px solid #e0e0e0';
       e.target.style.borderBottom = 'none';
-      e.target.classList.remove('plus');
-      e.target.classList.add('minus');
+      // e.target.classList.remove(styles['plus']);
+      e.target.classList.add(styles['minus']);
     }
   }
 
-  onSizeDropdown() {
-    let sizes = document.getElementsByClassName('sizesList');
-    sizes = Array.prototype.slice.call(sizes);
-    sizes.forEach(size => {
-      if (!size.classList.contains('open')) {
-        size.classList.add('open');
-      } else {
-        size.classList.remove('open');
-      }
-    });
+  onSizeDropdown(e) {
+    let sizeDropdown = document.getElementsByClassName(e.target.className);
+    sizeDropdown = Array.prototype.slice.call(sizeDropdown)[0];
+    if (sizeDropdown.nextElementSibling.style.display === 'none') {
+      sizeDropdown.nextElementSibling.style.display = 'block';
+    } else {
+      sizeDropdown.nextElementSibling.style.display = 'none';
+    }
   }
 
   onSizeSelect(e) {
     this.setState({ size: e.target.getAttribute('name') });
-    console.log(e.target.getAttribute('name'));
-    let sizes = document.getElementsByClassName('sizesList');
+    let sizes = document.getElementsByClassName(e.target.className);
     sizes = Array.prototype.slice.call(sizes);
     sizes.forEach(size => {
-      size.classList.remove('open');
+      size.parentNode.style.display = 'none';
     });
   }
 

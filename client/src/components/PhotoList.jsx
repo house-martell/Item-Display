@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from '../../dist/styles/photoList.css';
+import styles from '../../dist/styles/app.css';
 
 const PhotoList = props => {
   return (
