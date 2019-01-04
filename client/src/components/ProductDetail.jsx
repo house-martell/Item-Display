@@ -8,7 +8,7 @@ import DetailColors from './DetailColors.jsx';
 import DetailButtons from './DetailButtons.jsx';
 import DetailDropdowns from './DetailDropdowns.jsx';
 
-import styles from '../../dist/styles/app.css';
+import styles from '../../dist/styles/productDetail.css';
 
 const ProductDetail = props => {
   return (

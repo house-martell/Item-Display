@@ -1,0 +1,75 @@
+/* == flexbox == */
+
+.flexRow {
+  display: flex;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+
+/* == components below == */
+
+.clickable {
+  cursor: pointer;
+}
+
+
+/* == detail description == */
+
+h2 {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.horizontalLine {
+  border: 0.5px solid #e0e0e0;
+  padding: 0 !important;
+}
+
+
+/* == media == */
+
+@media screen and (max-width: 992px) {
+  .detailDescriptionContainer {
+    order: 5;
+    padding: 8px;
+    font-size: 2vw;
+  }
+
+  .break {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .whyMade {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .horizontalLine {
+    display: none;
+  }
+}

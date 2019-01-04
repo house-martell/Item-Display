@@ -15,6 +15,7 @@ body {
   background-color: #fafafa;
 }
 
+
 /* == flexbox == */
 
 .flexRow {
@@ -39,8 +40,7 @@ body {
 }
 
 
-
-/* == components below == */
+/* == app == */
 
 .clickable {
   cursor: pointer;
@@ -58,7 +58,6 @@ body {
 
 
 /* == photo list == */
-
 
 .photoListContainer {
   position: fixed;
@@ -82,66 +81,6 @@ body {
   opacity: 1;
 }
 
-
-
-
-
-
-
-
-/* == photo scroll == */
-
-.photoScrollContainer {
-  margin: 0 20px;
-  position: relative;
-}
-
-.photoScroll {
-  max-width: 50vw;
-  height: auto;
-  margin: 8px auto;
-}
-
-/* == product detail below == */
-
-.productDetailContainer {
-  max-width: 40vw;
-  min-width: 320px;
-  margin: 0 24px;
-  position: -webkit-sticky;
-  position: sticky;
-  bottom: 20px;
-  align-self: flex-end;
-}
-
-/* == detail description == */
-
-h1 {
-  margin: 0;
-  font-weight: normal;
-}
-
-h2 {
-  font-weight: normal;
-  font-size: 20px;
-}
-
-p {
-  margin-bottom: 20px;
-}
-
-.price {
-  font-size: 20px;
-}
-
-.currency {
-  font-size: 14px;
-}
-
-.horizontalLine {
-  border: 0.5px solid #e0e0e0;
-  padding: 0 !important;
-}
 
 /* == detail colors == */
 
@@ -175,118 +114,6 @@ p {
   display: none;
 }
 
-/* == detail buttons == */
-
-.icon {
-  width: 24px;
-  height: 22px;
-  vertical-align: middle;
-}
-
-.iconText {
-  vertical-align: middle;
-  font-weight: bold;
-}
-
-.verticalLine {
-  border: 1px solid #e0e0e0;
-  height: 20px;
-}
-
-.buttonBox {
-  font-family: "Lululemon Heavy";
-  border: 1px solid black;
-  padding: 12px;
-  margin: 5px 0;
-  text-transform: uppercase;
-  text-align: center;
-  transition: all .5s ease-in-out;
-}
-
-.whiteBtn:hover {
-  background-color: rgb(216, 216, 216);
-  border: 1px solid rgb(216, 216, 216);
-  transition: all .3s ease;
-}
-
-.redBtn {
-  border: 1px solid #d22030;
-  background-color: #d22030;
-  color: white;
-}
-
-.redBtn:hover {
-  opacity: 0.7;
-}
-
-.sizeDropdownContainer {
-  position: relative;
-}
-
-.sizeDropdown {
-  width: 240px;
-  padding: 16px;
-  margin: 5px 0;
-  background-color: white;
-  font-size: 20px;
-  border: none;
-  outline: none;
-  box-shadow: 1px 1px 4px 0 hsla(0,0%,88%,.5);
-  background-image: url('https://s3-us-west-1.amazonaws.com/fec-lulumelon/icons/size_arrow.png');
-  background-repeat: no-repeat;
-  background-position: 93%;
-  background-size: 13px;
-}
-
-.selectSize {
-  display: block;
-  font-size: 15px;
-  text-align: right;
-  float: right;
-  margin-right: 28px;
-  padding-top: 4px;
-}
-
-.sizesList {
-  display: none;
-  position: absolute;
-  top: 48px;
-  z-index: 10;
-}
-
-.sizes {
-  width: 240px;
-  padding: 16px;
-  margin: 0;
-  background-color: white;
-  font-size: 15px;
-  border: none;
-  outline: none;
-  text-align: center;
-  box-shadow: 1px 1px 4px 0 hsla(0,0%,88%,.5);
-}
-
-.open {
-  display: block;
-}
-
-.sizes:hover {
-  background-color: #fafafa;
-}
-
-.sizeGuide {
-  text-decoration: underline;
-  font-family: "Lululemon Heavy";
-  position: relative;
-  top: 15px;
-  vertical-align: bottom;
-}
-
-/* == small photo scroll == */
-
-.smallPhotoScrollContainer {
-  display: none;
-}
 
 /* == detail dropdowns == */
 
@@ -364,6 +191,11 @@ p {
   vertical-align: center;
 }
 
+.horizontalLine {
+  border: 0.5px solid #e0e0e0;
+  padding: 0 !important;
+}
+
 .animated {
   animation-duration: 2s;
   animation-fill-mode: both;
@@ -380,11 +212,6 @@ p {
 }
 
 
-
-
-
-
-
 /* == media == */
 
 @media screen and (max-width: 992px) {
@@ -398,96 +225,16 @@ p {
     display: none;
   }
 
-  .nav {
-    height: 58px;
-    border-bottom: 0.5px solid #e0e0e0;
-  }
-
-  .navDirectory {
+  .break {
     display: none;
-  }
-
-  .logo {
-    width: 28px;
-    height: 28px;
-    padding: 15px;
-  }
-
-  .signIn {
-    display: none;
-  }
-
-  .dropMenu {
-    display: block;
   }
 
   .photoListContainer {
     display: none;
   }
 
-  .photoScrollContainer {
-    display: none;
-  }
-
-  .smallPhotoScroll {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .scrolling {
-    display: inline-block;
-  }
-  
-  .productDetailContainer {
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .detailNameContainer {
-    display: flex;
-    justify-content: space-between;
-    order: 1;
-    padding: 8px;
-  }
-
-  .totalPrice {
-    vertical-align: bottom;
-  }
-
-  .price {
-    font-size: 16px;
-  }
-
-  .currency {
-    font-size: 12px;
-  }
-
-  .smallPhotoScrollContainer {
-    order: 2;
-    display: block;
-    width: 100%; 
-    overflow-x:scroll;     
-    white-space: nowrap;
-  }
-
-  .detailDescriptionContainer {
-    order: 5;
-    padding: 8px;
-    font-size: 2vw;
-  }
-
-  .break {
-    display: none;
-  }
-
   .detailColorsContainer {
     order: 3;
-    padding: 8px;
-  }
-
-  .detailButtonsContainer {
-    order: 4;
     padding: 8px;
   }
 
@@ -497,17 +244,7 @@ p {
   }
 }
 
-
 @media screen and (max-width: 768px) {
-  .totalPrice {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .currency {
-    text-align: right;
-  }
-
   .swatchName {
     display: none;
   }
@@ -525,27 +262,6 @@ p {
     display: inline-block;
     position: absolute;
     right: 4px;
-  }
-
-  .whyMade {
-    font-size: 16px;
-  }
-
-  .description {
-    font-size: 14px;
-  }
-
-  .buttonBox {
-    font-size: 10px;
-    padding: 7px;
-  }
-
-  .sizeDropdown {
-    padding: 12px;
-  }
-
-  .horizontalLine {
-    display: none;
   }
 
   .dropdown {

@@ -174,7 +174,7 @@ class App extends React.Component {
   onSizeDropdown(e) {
     let sizeDropdown = document.getElementsByClassName(e.target.className);
     sizeDropdown = Array.prototype.slice.call(sizeDropdown)[0];
-    if (sizeDropdown.nextElementSibling.style.display === 'none') {
+    if (sizeDropdown.nextElementSibling.style.display === 'none' || sizeDropdown.nextElementSibling.style.display === '') {
       sizeDropdown.nextElementSibling.style.display = 'block';
     } else {
       sizeDropdown.nextElementSibling.style.display = 'none';

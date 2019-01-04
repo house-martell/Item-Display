@@ -1,0 +1,52 @@
+/* == flexbox == */
+
+.flexRow {
+  display: flex;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+
+
+/* == components below == */
+
+.clickable {
+  cursor: pointer;
+}
+
+/* == product detail below == */
+
+.productDetailContainer {
+  max-width: 40vw;
+  min-width: 300px;
+  margin: 0 24px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 20px;
+  align-self: flex-end;
+}
+
+/* == media == */
+
+@media screen and (max-width: 992px) {
+  .productDetailContainer {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}

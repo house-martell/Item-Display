@@ -1,0 +1,60 @@
+/* == flexbox == */
+
+.flexRow {
+  display: flex;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+
+
+/* == components below == */
+
+.clickable {
+  cursor: pointer;
+}
+
+
+/* == small photo scroll == */
+
+.smallPhotoScrollContainer {
+  display: none;
+}
+
+
+/* == media == */
+
+@media screen and (max-width: 992px) {
+  .smallPhotoScrollContainer {
+    order: 2;
+    display: block;
+    width: 100%; 
+    overflow-x:scroll;     
+    white-space: nowrap;
+  }
+  
+  .smallPhotoScroll {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .scrolling {
+    display: inline-block;
+  }
+  
+}

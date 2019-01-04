@@ -1,0 +1,84 @@
+/* == flexbox == */
+
+.flexRow {
+  display: flex;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+
+/* == components below == */
+
+.clickable {
+  cursor: pointer;
+}
+
+
+/* == detail name == */
+
+h1 {
+  margin: 0;
+  font-weight: normal;
+}
+
+.price {
+  font-size: 20px;
+}
+
+.currency {
+  font-size: 14px;
+}
+
+
+/* == media == */
+
+@media screen and (max-width: 992px) {
+  .detailNameContainer {
+    display: flex;
+    justify-content: space-between;
+    order: 1;
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 3.9vw;
+  }
+
+  .totalPrice {
+    vertical-align: bottom;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .currency {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .totalPrice {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .currency {
+    text-align: right;
+  }
+}

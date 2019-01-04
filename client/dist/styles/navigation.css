@@ -21,6 +21,14 @@
   justify-content: space-between;
 }
 
+
+/* == components below == */
+
+.clickable {
+  cursor: pointer;
+}
+
+
 /* == navigation == */
 
 .nav {
@@ -83,4 +91,32 @@
   width: 25px;
   height: 25px;
   margin-right: 20px;
+}
+
+
+/* == media == */
+
+@media screen and (max-width: 992px) {
+  .nav {
+    height: 58px;
+    border-bottom: 0.5px solid #e0e0e0;
+  }
+
+  .navDirectory {
+    display: none;
+  }
+
+  .logo {
+    width: 28px;
+    height: 28px;
+    padding: 15px;
+  }
+
+  .signIn {
+    display: none;
+  }
+
+  .dropMenu {
+    display: block;
+  }
 }

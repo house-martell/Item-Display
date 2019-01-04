@@ -1,0 +1,52 @@
+/* == flexbox == */
+
+.flexRow {
+  display: flex;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+
+/* == components below == */
+
+.clickable {
+  cursor: pointer;
+}
+
+
+/* == photo scroll == */
+
+.photoScrollContainer {
+  margin: 0 20px;
+  position: relative;
+}
+
+.photoScroll {
+  max-width: 50vw;
+  height: auto;
+  margin: 8px auto;
+}
+
+
+/* == media == */
+
+@media screen and (max-width: 992px) {
+  .photoScrollContainer {
+    display: none;
+  }
+}
