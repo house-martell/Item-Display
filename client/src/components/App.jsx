@@ -52,7 +52,7 @@ class App extends React.Component {
   }
 
   getProduct(productId) {
-    axios.get(`http://localhost:3001/api/products/${productId}`)
+    axios.get(`api/products/${productId}`)
       .then(({ data }) => {
         this.setState({ currentProduct: data });
         this.getColors(productId);
@@ -64,50 +64,50 @@ class App extends React.Component {
   }
 
   getColors(productId) {
-    axios.get(`http://localhost:3001/api/products/${productId}/colors`)
+    axios.get(`api/products/${productId}/colors`)
       .then(({ data }) => {
         this.setState({ colors: data });
         this.selectCurrentColor(this.state.colors[0].id);
-        console.log('this.state.colors', this.state.colors);
+        // console.log('this.state.colors', this.state.colors);
       })
       .catch(err => console.error('error getting colors', err));
   }
 
   selectCurrentColor(colorId) {
-    axios.get(`http://localhost:3001/api/products/${this.state.currentProduct.id}/colors/${colorId}`)
+    axios.get(`api/products/${this.state.currentProduct.id}/colors/${colorId}`)
       .then(({ data }) => {
         this.setState({ currentColor: data });
         this.getPhotos(colorId);
-        console.log('this.state.currentColor', this.state.currentColor);
+        // console.log('this.state.currentColor', this.state.currentColor);
       })
       .catch(err => console.error('error selecting color', err));
   }
 
   getPhotos(colorId) {
-    axios.get(`http://localhost:3001/api/products/${this.state.currentProduct.id}/colors/${colorId}/photos`)
+    axios.get(`api/products/${this.state.currentProduct.id}/colors/${colorId}/photos`)
       .then(({ data }) => {
         this.setState({ photos: data });
         this.setState({ currentPhoto: data[0] });
-        console.log('this.state.photos', this.state.photos);
-        console.log('this.state.currentPhoto', this.state.currentPhoto);
+        // console.log('this.state.photos', this.state.photos);
+        // console.log('this.state.currentPhoto', this.state.currentPhoto);
       })
       .catch(err => console.error('error getting photos', err));
   }
 
   getFabrics(productId) {
-    axios.get(`http://localhost:3001/api/products/${productId}/fabrics`)
+    axios.get(`api/products/${productId}/fabrics`)
       .then(({ data }) => {
         this.setState({ fabrics: data });
-        console.log('this.state.fabrics', this.state.fabrics);
+        // console.log('this.state.fabrics', this.state.fabrics);
       })
       .catch(err => console.error('error getting fabrics', err));
   }
 
   getFeatures(productId) {
-    axios.get(`http://localhost:3001/api/products/${productId}/features`)
+    axios.get(`api/products/${productId}/features`)
       .then(({ data }) => {
         this.setState({ features: data });
-        console.log('this.state.features', this.state.features);
+        // console.log('this.state.features', this.state.features);
       })
       .catch(err => console.error('error getting features', err));
   }
@@ -121,14 +121,13 @@ class App extends React.Component {
     swatches = Array.prototype.slice.call(swatches);
     swatches.forEach(swatch => {
       swatch.parentNode.classList = '';
-      console.log(swatch.parentNode);
       swatch.classList.remove(styles['selectedSwatch']);
     });
     e.target.classList.add(styles['selectedSwatch']);
   }
 
   onPhotoClick(photo) {
-    this.setState({ currentPhoto: photo }, () => console.log('current photo from click', this.state.currentPhoto));
+    this.setState({ currentPhoto: photo });
   }
 
   onPhotoSelect(e) {
@@ -150,7 +149,6 @@ class App extends React.Component {
         dropdown.style.borderBottom = '0.5px solid #e0e0e0';
         dropdown.classList.remove(styles['minus']);
         dropdown.classList.add(styles['plus']);
-        console.log('class names', dropdown.classList);
       }
     });
     if (e.target.nextElementSibling.style.display === 'block') {
