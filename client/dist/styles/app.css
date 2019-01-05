@@ -46,21 +46,20 @@ body {
   cursor: pointer;
 }
 
+.main {
+  position: relative;
+  top: 50px;
+}
+
 .directory {
-  margin: 0 12px; 
+  margin: 0 12px;
 }
-
-.parent {
-  max-width: 95px !important;
-  min-width: 95px !important;
-  display: inline-block !important;
-}
-
 
 /* == photo list == */
 
 .photoListContainer {
-  position: fixed;
+  position: sticky;
+  top: 50px;
   width: 94px;
   left: 12px;
 }

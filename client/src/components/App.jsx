@@ -174,7 +174,7 @@ class App extends React.Component {
   onSizeDropdown(e) {
     let sizeDropdown = document.getElementsByClassName(e.target.className);
     sizeDropdown = Array.prototype.slice.call(sizeDropdown)[0];
-    if (sizeDropdown.nextElementSibling.style.display === 'none' || sizeDropdown.nextElementSibling.style.display === '') {
+    if (sizeDropdown.nextElementSibling.style.display !== 'block') {
       sizeDropdown.nextElementSibling.style.display = 'block';
     } else {
       sizeDropdown.nextElementSibling.style.display = 'none';
@@ -196,34 +196,36 @@ class App extends React.Component {
         <Navigation />
         <br className={styles.break}/>
         <br className={styles.break}/>
-        <div className={styles.directory}>
-          <span className={styles.clickable}>Women</span>{' > '}<span className={styles.clickable}>{this.state.currentProduct.category}</span>{' > '}<span className={styles.clickable}>{this.state.currentProduct.type}</span>
-        </div>
-        <br/>
-        <div className={classNames(styles.flexRow, styles.container)}>
-          <div className={styles.parent}></div>
-          <PhotoList 
-            photos={this.state.photos} 
-            onPhotoClick={this.onPhotoClick}
-            onPhotoSelect={this.onPhotoSelect}
-          />
-          <PhotoScroll 
-            photos={this.state.photos} 
-          />
-          <ProductDetail 
-            product={this.state.currentProduct} 
-            photos={this.state.photos} 
-            colors={this.state.colors}
-            fabrics={this.state.fabrics}
-            features={this.state.features}
-            size={this.state.size}
-            currentColor={this.state.currentColor}
-            onSwatchClick={this.onSwatchClick}
-            onSwatchSelect={this.onSwatchSelect}
-            onDropdownClick={this.onDropdownClick}
-            onSizeDropdown={this.onSizeDropdown}
-            onSizeSelect={this.onSizeSelect}
-          />
+        <div className={styles.main}>
+          <div className={styles.directory}>
+            <span className={styles.clickable}>Women</span>{' > '}<span className={styles.clickable}>{this.state.currentProduct.category}</span>{' > '}<span className={styles.clickable}>{this.state.currentProduct.type}</span>
+          </div>
+          <br/>
+          <div className={classNames(styles.flexRow, styles.container)}>
+            <div className={styles.parent}></div>
+            <PhotoList 
+              photos={this.state.photos} 
+              onPhotoClick={this.onPhotoClick}
+              onPhotoSelect={this.onPhotoSelect}
+            />
+            <PhotoScroll 
+              photos={this.state.photos} 
+            />
+            <ProductDetail 
+              product={this.state.currentProduct} 
+              photos={this.state.photos} 
+              colors={this.state.colors}
+              fabrics={this.state.fabrics}
+              features={this.state.features}
+              size={this.state.size}
+              currentColor={this.state.currentColor}
+              onSwatchClick={this.onSwatchClick}
+              onSwatchSelect={this.onSwatchSelect}
+              onDropdownClick={this.onDropdownClick}
+              onSizeDropdown={this.onSizeDropdown}
+              onSizeSelect={this.onSizeSelect}
+            />
+          </div>
         </div>
       </div>
     );
