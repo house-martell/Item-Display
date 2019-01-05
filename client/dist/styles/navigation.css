@@ -31,6 +31,11 @@
 
 /* == navigation == */
 
+.whiteSpace {
+  height: 60px;
+  width: 100%;
+}
+
 .nav {
   height: 70px;
   width: 100%;

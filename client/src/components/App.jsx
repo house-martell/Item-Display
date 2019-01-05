@@ -49,7 +49,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getProduct(Math.floor(Math.random() * 13) + 1); 
-    // 13 is num of products we have -> needs to be 30 eventually
   }
 
   getProduct(productId) {
@@ -120,9 +119,6 @@ class App extends React.Component {
   onSwatchSelect(e) {
     let swatches = document.getElementsByClassName(e.target.className);
     swatches = Array.prototype.slice.call(swatches);
-    // let initSwatch = document.getElementsByClassName(e.target.parentNode.className);
-    // initSwatch = Array.prototype.slice.call(initSwatch).pop().className;
-    // console.log('initswatch', initSwatch)
     swatches.forEach(swatch => {
       swatch.parentNode.classList = '';
       console.log(swatch.parentNode);

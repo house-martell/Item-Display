@@ -48,7 +48,6 @@ body {
 
 .main {
   position: relative;
-  top: 50px;
 }
 
 .directory {
@@ -59,7 +58,7 @@ body {
 
 .photoListContainer {
   position: sticky;
-  top: 50px;
+  top: 145px;
   width: 94px;
   left: 12px;
 }
