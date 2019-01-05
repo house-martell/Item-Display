@@ -52,7 +52,7 @@ class App extends React.Component {
   }
 
   getProduct(productId) {
-    axios.get(`api/products/${productId}`)
+    axios.get(`http://localhost:3001/api/products/${productId}`)
       .then(({ data }) => {
         this.setState({ currentProduct: data });
         this.getColors(productId);
@@ -64,7 +64,7 @@ class App extends React.Component {
   }
 
   getColors(productId) {
-    axios.get(`api/products/${productId}/colors`)
+    axios.get(`http://localhost:3001/api/products/${productId}/colors`)
       .then(({ data }) => {
         this.setState({ colors: data });
         this.selectCurrentColor(this.state.colors[0].id);
@@ -74,7 +74,7 @@ class App extends React.Component {
   }
 
   selectCurrentColor(colorId) {
-    axios.get(`api/products/${this.state.currentProduct.id}/colors/${colorId}`)
+    axios.get(`http://localhost:3001/api/products/${this.state.currentProduct.id}/colors/${colorId}`)
       .then(({ data }) => {
         this.setState({ currentColor: data });
         this.getPhotos(colorId);
@@ -84,7 +84,7 @@ class App extends React.Component {
   }
 
   getPhotos(colorId) {
-    axios.get(`api/products/${this.state.currentProduct.id}/colors/${colorId}/photos`)
+    axios.get(`http://localhost:3001/api/products/${this.state.currentProduct.id}/colors/${colorId}/photos`)
       .then(({ data }) => {
         this.setState({ photos: data });
         this.setState({ currentPhoto: data[0] });
@@ -95,7 +95,7 @@ class App extends React.Component {
   }
 
   getFabrics(productId) {
-    axios.get(`api/products/${productId}/fabrics`)
+    axios.get(`http://localhost:3001/api/products/${productId}/fabrics`)
       .then(({ data }) => {
         this.setState({ fabrics: data });
         console.log('this.state.fabrics', this.state.fabrics);
@@ -104,7 +104,7 @@ class App extends React.Component {
   }
 
   getFeatures(productId) {
-    axios.get(`api/products/${productId}/features`)
+    axios.get(`http://localhost:3001/api/products/${productId}/features`)
       .then(({ data }) => {
         this.setState({ features: data });
         console.log('this.state.features', this.state.features);
