@@ -28,8 +28,11 @@ class App extends React.Component {
       currentPhoto: '',
       fabrics: [],
       features: [],
-      size: 'Select Size'
+      size: 'Select Size',
+      photoScroll: ''
     };
+
+    this.height = React.createRef();
 
     this.getProduct = this.getProduct.bind(this);
     this.getColors = this.getColors.bind(this);
@@ -45,26 +48,28 @@ class App extends React.Component {
     this.onDropdownClick = this.onDropdownClick.bind(this);
     this.onSizeDropdown = this.onSizeDropdown.bind(this);
     this.onSizeSelect = this.onSizeSelect.bind(this);
+    // this.onPageScroll = this.onPageScroll.bind(this);
   }
 
   componentDidMount() {
     this.getProduct(Math.floor(Math.random() * 13) + 1); 
+    // window.addEventListener('scroll', this.onPageScroll);
   }
 
   getProduct(productId) {
-    axios.get(`api/products/${productId}`)
+    axios.get(`http://localhost:3001/api/products/${productId}`)
       .then(({ data }) => {
         this.setState({ currentProduct: data });
         this.getColors(productId);
         this.getFabrics(productId);
         this.getFeatures(productId);
-        console.log('this.state.currentProduct', this.state.currentProduct);
+        // console.log('this.state.currentProduct', this.state.currentProduct);
       })
       .catch(err => console.error('error getting products', err));
   }
 
   getColors(productId) {
-    axios.get(`api/products/${productId}/colors`)
+    axios.get(`http://localhost:3001/api/products/${productId}/colors`)
       .then(({ data }) => {
         this.setState({ colors: data });
         this.selectCurrentColor(this.state.colors[0].id);
@@ -74,7 +79,7 @@ class App extends React.Component {
   }
 
   selectCurrentColor(colorId) {
-    axios.get(`api/products/${this.state.currentProduct.id}/colors/${colorId}`)
+    axios.get(`http://localhost:3001/api/products/${this.state.currentProduct.id}/colors/${colorId}`)
       .then(({ data }) => {
         this.setState({ currentColor: data });
         this.getPhotos(colorId);
@@ -84,18 +89,18 @@ class App extends React.Component {
   }
 
   getPhotos(colorId) {
-    axios.get(`api/products/${this.state.currentProduct.id}/colors/${colorId}/photos`)
+    axios.get(`http://localhost:3001/api/products/${this.state.currentProduct.id}/colors/${colorId}/photos`)
       .then(({ data }) => {
         this.setState({ photos: data });
         this.setState({ currentPhoto: data[0] });
         // console.log('this.state.photos', this.state.photos);
-        // console.log('this.state.currentPhoto', this.state.currentPhoto);
+        console.log('this.state.currentPhoto', this.state.currentPhoto);
       })
       .catch(err => console.error('error getting photos', err));
   }
 
   getFabrics(productId) {
-    axios.get(`api/products/${productId}/fabrics`)
+    axios.get(`http://localhost:3001/api/products/${productId}/fabrics`)
       .then(({ data }) => {
         this.setState({ fabrics: data });
         // console.log('this.state.fabrics', this.state.fabrics);
@@ -104,7 +109,7 @@ class App extends React.Component {
   }
 
   getFeatures(productId) {
-    axios.get(`api/products/${productId}/features`)
+    axios.get(`http://localhost:3001/api/products/${productId}/features`)
       .then(({ data }) => {
         this.setState({ features: data });
         // console.log('this.state.features', this.state.features);
@@ -138,7 +143,27 @@ class App extends React.Component {
       photo.classList.remove(styles['selectedPhoto']);
     });
     e.target.classList.add(styles['selectedPhoto']);
+    // console.log('offset height', e.target.getBoundingClientRect().top - 149);
   }
+
+  // onPageScroll() {
+  //   let scrollAmt = document.scrollingElement.scrollTop;
+  //   this.setState({ photoScroll: scrollAmt });
+  //   console.log('state.photoScroll', this.state.photoScroll);
+
+  //   let offsets = [];
+  //   for (let i = 0; i < this.state.photos.length; i++) {
+  //     let offset = i * (this.height.current.clientHeight);
+  //     offsets.push(offset);
+  //   }
+  //   for (let i of offsets) {
+  //     if (i === this.state.photoScroll) {
+  //       console.log('this is true');
+  //     }
+  //   }
+  //   console.log(this.height);
+  //   console.log('idk', this.height.current.offsetTop);
+  // }
 
   onDropdownClick(e) {
     let dropdowns = document.getElementsByClassName(e.target.className);
@@ -168,10 +193,18 @@ class App extends React.Component {
   onSizeDropdown(e) {
     let sizeDropdown = document.getElementsByClassName(e.target.className);
     sizeDropdown = Array.prototype.slice.call(sizeDropdown)[0];
-    if (sizeDropdown.nextElementSibling.style.display !== 'block') {
-      sizeDropdown.nextElementSibling.style.display = 'block';
+    if (sizeDropdown.nodeName === 'DIV') {
+      if (sizeDropdown.nextElementSibling.style.display !== 'block') {
+        sizeDropdown.nextElementSibling.style.display = 'block';
+      } else {
+        sizeDropdown.nextElementSibling.style.display = 'none';
+      }
     } else {
-      sizeDropdown.nextElementSibling.style.display = 'none';
+      if (sizeDropdown.parentNode.nextElementSibling.style.display !== 'block') {
+        sizeDropdown.parentNode.nextElementSibling.style.display = 'block';
+      } else {
+        sizeDropdown.parentNode.nextElementSibling.style.display = 'none';
+      }
     }
   }
 
@@ -199,11 +232,13 @@ class App extends React.Component {
             <div className={styles.parent}></div>
             <PhotoList 
               photos={this.state.photos} 
+              currentPhoto={this.state.currentPhoto}
               onPhotoClick={this.onPhotoClick}
               onPhotoSelect={this.onPhotoSelect}
             />
             <PhotoScroll 
               photos={this.state.photos} 
+              // height={this.height}
             />
             <ProductDetail 
               product={this.state.currentProduct} 

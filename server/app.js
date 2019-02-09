@@ -8,7 +8,7 @@ const router = require('./router');
 
 const app = express();
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(cors());
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));

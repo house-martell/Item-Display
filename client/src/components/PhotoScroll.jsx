@@ -8,7 +8,7 @@ const PhotoScroll = props => {
     <div className={classNames(styles.photoScrollContainer, styles.flexColumn)}>
       {props.photos.map((photo, i) => {
         return (
-          <div id={photo.id} key={i}>
+          <div key={i}>
             <img className={styles.photoScroll} src={photo.photo_url}/>
           </div>
         );

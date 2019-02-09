@@ -130,10 +130,13 @@
 }
 
 .sizeGuide {
+  display: inline-block;
+  width: 70px;
+  padding-left: 20px;
   text-decoration: underline;
   font-family: "Lululemon Heavy";
   position: relative;
-  top: 15px;
+  top: 20px;
   vertical-align: bottom;
 }
 
@@ -157,4 +160,7 @@
     padding: 12px;
   }
 
+  .sizes {
+    padding: 12px;
+  }
 }
