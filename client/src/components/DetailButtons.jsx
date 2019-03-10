@@ -4,6 +4,11 @@ import classNames from 'classnames';
 import styles from '../../dist/styles/detailButtons.css';
 
 const DetailButtons = props => {
+  let sizes = [];
+  for (let i = 0; i <= 14; i += 2) {
+    sizes.push(<div name={i} key={i} className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>{i}</div>);
+  }
+  
   return (
     <div className={classNames(styles.detailButtonsContainer, styles.flexColumn)}>
       <div className={classNames(styles.flexRow, styles.spaceBetween)}>
@@ -13,13 +18,7 @@ const DetailButtons = props => {
             <span className={styles.selectSize}>{props.size}</span>
           </div>
           <div className={styles.sizesList}>
-            <div name="2" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>2</div>
-            <div name="4" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>4</div>
-            <div name="6" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>6</div>
-            <div name="8" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>8</div>
-            <div name="10" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>10</div>
-            <div name="12" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>12</div>
-            <div name="14" className={classNames(styles.sizes, styles.clickable)} onClick={props.onSizeSelect}>14</div>
+            {sizes}
           </div>
         </div>
         <br/>

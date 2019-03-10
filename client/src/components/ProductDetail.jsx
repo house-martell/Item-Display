@@ -13,9 +13,15 @@ import styles from '../../dist/styles/productDetail.css';
 const ProductDetail = props => {
   return (
     <div className={classNames(styles.productDetailContainer, styles.flexColumn)}>
-      <DetailName product={props.product} />
-      <SmallPhotoScroll photos={props.photos} />
-      <DetailDescription product={props.product} />
+      <DetailName
+        product={props.product}
+      />
+      <SmallPhotoScroll
+        photos={props.photos}
+      />
+      <DetailDescription
+        product={props.product}
+      />
       <DetailColors 
         colors={props.colors} 
         currentColor={props.currentColor} 

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import classNames from 'classnames';
+import _ from 'lodash';
 
 import Navigation from './Navigation.jsx';
 import PhotoList from './PhotoList.jsx';
@@ -29,143 +30,118 @@ class App extends React.Component {
       fabrics: [],
       features: [],
       size: 'Select Size',
-      photoScroll: ''
+      photoHeight: 0
     };
-
-    this.height = React.createRef();
-
-    this.getProduct = this.getProduct.bind(this);
-    this.getColors = this.getColors.bind(this);
-    this.selectCurrentColor = this.selectCurrentColor.bind(this);
-    this.getPhotos = this.getPhotos.bind(this);
-    this.getFabrics = this.getFabrics.bind(this);
-    this.getFeatures = this.getFeatures.bind(this);
-
-    this.onSwatchClick = this.onSwatchClick.bind(this);
-    this.onSwatchSelect = this.onSwatchSelect.bind(this);
-    this.onPhotoClick = this.onPhotoClick.bind(this);
-    this.onPhotoSelect = this.onPhotoSelect.bind(this);
-    this.onDropdownClick = this.onDropdownClick.bind(this);
-    this.onSizeDropdown = this.onSizeDropdown.bind(this);
-    this.onSizeSelect = this.onSizeSelect.bind(this);
-    // this.onPageScroll = this.onPageScroll.bind(this);
   }
 
   componentDidMount() {
+    // select random product
     this.getProduct(Math.floor(Math.random() * 13) + 1); 
-    // window.addEventListener('scroll', this.onPageScroll);
+
+    // event listeners
+    window.addEventListener('scroll', this.onPageScroll);
+    window.addEventListener('resize', _.debounce(this.getPhotoHeight, 500, {leading: false}));
+
+    // get initial photo height once page loads
+    setTimeout(this.getPhotoHeight, 500);
   }
 
-  getProduct(productId) {
+  //~ Methods for loading product, colors, photos, fabrics, features ~//
+
+  getProduct = productId => {
     axios.get(`http://localhost:3001/api/products/${productId}`)
       .then(({ data }) => {
         this.setState({ currentProduct: data });
         this.getColors(productId);
         this.getFabrics(productId);
         this.getFeatures(productId);
-        // console.log('this.state.currentProduct', this.state.currentProduct);
       })
       .catch(err => console.error('error getting products', err));
   }
 
-  getColors(productId) {
+  getColors = productId => {
     axios.get(`http://localhost:3001/api/products/${productId}/colors`)
       .then(({ data }) => {
-        this.setState({ colors: data });
-        this.selectCurrentColor(this.state.colors[0].id);
-        // console.log('this.state.colors', this.state.colors);
+        this.setState({ colors: data }, () => {
+          this.selectCurrentColor(this.state.colors[0].id);
+        });
       })
       .catch(err => console.error('error getting colors', err));
   }
 
-  selectCurrentColor(colorId) {
+  selectCurrentColor = colorId => {
     axios.get(`http://localhost:3001/api/products/${this.state.currentProduct.id}/colors/${colorId}`)
       .then(({ data }) => {
         this.setState({ currentColor: data });
         this.getPhotos(colorId);
-        // console.log('this.state.currentColor', this.state.currentColor);
       })
       .catch(err => console.error('error selecting color', err));
   }
 
-  getPhotos(colorId) {
+  getPhotos = colorId => {
     axios.get(`http://localhost:3001/api/products/${this.state.currentProduct.id}/colors/${colorId}/photos`)
       .then(({ data }) => {
-        this.setState({ photos: data });
-        this.setState({ currentPhoto: data[0] });
-        // console.log('this.state.photos', this.state.photos);
-        console.log('this.state.currentPhoto', this.state.currentPhoto);
+        this.setState({ photos: data, currentPhoto: data[0] });
       })
       .catch(err => console.error('error getting photos', err));
   }
 
-  getFabrics(productId) {
+  getFabrics = productId => {
     axios.get(`http://localhost:3001/api/products/${productId}/fabrics`)
       .then(({ data }) => {
         this.setState({ fabrics: data });
-        // console.log('this.state.fabrics', this.state.fabrics);
       })
       .catch(err => console.error('error getting fabrics', err));
   }
 
-  getFeatures(productId) {
+  getFeatures = productId => {
     axios.get(`http://localhost:3001/api/products/${productId}/features`)
       .then(({ data }) => {
         this.setState({ features: data });
-        // console.log('this.state.features', this.state.features);
       })
       .catch(err => console.error('error getting features', err));
   }
 
-  onSwatchClick(colorId) {
+  //~ Listeners for user functionality ~// 
+
+  // updates photos based on swatch clicked
+  onSwatchClick = colorId => {
     this.selectCurrentColor(colorId);
   }
 
-  onSwatchSelect(e) {
+  // adds black outline around selected swatch
+  onSwatchSelect = e => {
     let swatches = document.getElementsByClassName(e.target.className);
     swatches = Array.prototype.slice.call(swatches);
     swatches.forEach(swatch => {
+      // remove initSwatch (first black outline)
       swatch.parentNode.classList = '';
+      // remove previously selected swatch (black outline)
       swatch.classList.remove(styles['selectedSwatch']);
     });
     e.target.classList.add(styles['selectedSwatch']);
   }
 
-  onPhotoClick(photo) {
+  // selects photo clicked
+  onPhotoClick = photo => {
     this.setState({ currentPhoto: photo });
   }
 
-  onPhotoSelect(e) {
+  // makes selected photo opaque
+  onPhotoSelect = e => {
     let photos = document.getElementsByClassName(e.target.className);
     photos = Array.prototype.slice.call(photos);
     photos.forEach(photo => {
+      // remove initPhoto (first opacity)
       photo.parentNode.parentNode.classList = '';
+      // remove previously selected photo (opacity)
       photo.classList.remove(styles['selectedPhoto']);
     });
     e.target.classList.add(styles['selectedPhoto']);
-    // console.log('offset height', e.target.getBoundingClientRect().top - 149);
   }
 
-  // onPageScroll() {
-  //   let scrollAmt = document.scrollingElement.scrollTop;
-  //   this.setState({ photoScroll: scrollAmt });
-  //   console.log('state.photoScroll', this.state.photoScroll);
-
-  //   let offsets = [];
-  //   for (let i = 0; i < this.state.photos.length; i++) {
-  //     let offset = i * (this.height.current.clientHeight);
-  //     offsets.push(offset);
-  //   }
-  //   for (let i of offsets) {
-  //     if (i === this.state.photoScroll) {
-  //       console.log('this is true');
-  //     }
-  //   }
-  //   console.log(this.height);
-  //   console.log('idk', this.height.current.offsetTop);
-  // }
-
-  onDropdownClick(e) {
+  // accordion box click functionality
+  onDropdownClick = e => {
     let dropdowns = document.getElementsByClassName(e.target.className);
     dropdowns = Array.prototype.slice.call(dropdowns);
     dropdowns.forEach(dropdown => {
@@ -190,7 +166,8 @@ class App extends React.Component {
     }
   }
 
-  onSizeDropdown(e) {
+  // size dropdown functionality
+  onSizeDropdown = e => {
     let sizeDropdown = document.getElementsByClassName(e.target.className);
     sizeDropdown = Array.prototype.slice.call(sizeDropdown)[0];
     if (sizeDropdown.nodeName === 'DIV') {
@@ -208,13 +185,41 @@ class App extends React.Component {
     }
   }
 
-  onSizeSelect(e) {
+  // selecting size from size menu dropdown
+  onSizeSelect = e => {
     this.setState({ size: e.target.getAttribute('name') });
     let sizes = document.getElementsByClassName(e.target.className);
     sizes = Array.prototype.slice.call(sizes);
     sizes.forEach(size => {
       size.parentNode.style.display = 'none';
     });
+  }
+
+  // side scroll change on scroll
+  onPageScroll = () => {
+    let scrollAmt = document.scrollingElement.scrollTop;
+
+    let length = document.getElementById('photoScroll').children.length;
+    let children = document.getElementById('photoList').children;
+    children = Array.prototype.slice.call(children);
+
+    for (let i = 0; i < length; i++) {
+      if (((this.state.photoHeight + 16) * i - 30) < scrollAmt && scrollAmt < ((this.state.photoHeight + 16) * i + 30)) {
+        children.forEach(child => {
+          // remove initial opacity
+          child.classList = '';
+          // remove previous opacity
+          child.children[0].children[0].classList.remove(styles['selectedPhoto']);
+        });
+
+        children[i].children[0].children[0].classList.add(styles['selectedPhoto']);
+      }
+    }
+  }
+
+  getPhotoHeight = () => {
+    let height = document.getElementById('photoScroll').children[0].clientHeight;
+    this.setState({ photoHeight: height });
   }
 
   render() {
@@ -229,7 +234,6 @@ class App extends React.Component {
           </div>
           <br/>
           <div className={classNames(styles.flexRow, styles.container)}>
-            <div className={styles.parent}></div>
             <PhotoList 
               photos={this.state.photos} 
               currentPhoto={this.state.currentPhoto}
@@ -238,7 +242,6 @@ class App extends React.Component {
             />
             <PhotoScroll 
               photos={this.state.photos} 
-              // height={this.height}
             />
             <ProductDetail 
               product={this.state.currentProduct} 
