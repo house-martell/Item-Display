@@ -1,14 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import DetailName from './DetailName.jsx';
-import SmallPhotoScroll from './SmallPhotoScroll.jsx';
-import DetailDescription from './DetailDescription.jsx';
-import DetailColors from './DetailColors.jsx';
-import DetailButtons from './DetailButtons.jsx';
-import DetailDropdowns from './DetailDropdowns.jsx';
-
-import styles from '../../dist/styles/productDetail.css';
+import DetailName from '../DetailName/DetailName.jsx';
+import SmallPhotoScroll from '../PhotoScroll/SmallPhotoScroll.jsx';
+import DetailDescription from '../DetailDescription/DetailDescription.jsx';
+import DetailColors from '../DetailColors/DetailColors.jsx';
+import DetailButtons from '../DetailButtons/DetailButtons.jsx';
+import DetailDropdowns from '../DetailDropdowns/DetailDropdowns.jsx';
+import styles from './productDetail.css';
 
 const ProductDetail = props => {
   return (

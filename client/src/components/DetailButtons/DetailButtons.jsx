@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from '../../dist/styles/detailButtons.css';
+import styles from './detailButtons.css';
 
 const DetailButtons = props => {
   let sizes = [];

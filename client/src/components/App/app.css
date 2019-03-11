@@ -2,12 +2,12 @@
 
 @font-face {
   font-family: "Lululemon Light";
-  src: url("../LululemonLightFont.woff2") format("woff2");
+  src: url("../../../fonts/LululemonLightFont.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Lululemon Heavy";
-  src: url("../LululemonHeavyFont.woff2") format("woff2");
+  src: url("../../../fonts/LululemonHeavyFont.woff2") format("woff2");
 }
 
 body {

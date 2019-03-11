@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../dist/styles/detailName.css';
+import styles from './detailName.css';
 
 const DetailName = props => {
   if (props.product.nameline2) {

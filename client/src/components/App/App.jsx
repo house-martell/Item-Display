@@ -3,11 +3,11 @@ import axios from 'axios';
 import classNames from 'classnames';
 import _ from 'lodash';
 
-import Navigation from './Navigation.jsx';
-import PhotoList from './PhotoList.jsx';
-import PhotoScroll from './PhotoScroll.jsx';
-import ProductDetail from './ProductDetail.jsx';
-import styles from '../../dist/styles/app.css';
+import Navigation from '../Navigation/Navigation.jsx';
+import PhotoList from '../PhotoList/PhotoList.jsx';
+import PhotoScroll from '../PhotoScroll/PhotoScroll.jsx';
+import ProductDetail from '../ProductDetail/ProductDetail.jsx';
+import styles from './app.css';
 
 class App extends React.Component {
   constructor(props) {

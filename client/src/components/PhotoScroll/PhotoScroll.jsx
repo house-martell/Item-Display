@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from '../../dist/styles/photoScroll.css';
+import styles from './photoScroll.css';
 
 const PhotoScroll = props => {
   return (

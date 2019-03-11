@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from '../../dist/styles/app.css';
+import styles from '../App/app.css';
 
 const DetailColors = props => {
   return (
