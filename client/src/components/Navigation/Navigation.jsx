@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './navigation.css';
 
 const Navigation = props => {
+  const navTitles = ['Women', 'Men', 'Girls', 'Collections', 'Community'];
   return (
     <div>
       <div className={styles.whiteSpace}></div>
@@ -11,11 +12,11 @@ const Navigation = props => {
         <div className={styles.flexRow}>
           <img className={classNames(styles.logo, styles.clickable)} src="https://s3-us-west-1.amazonaws.com/fec-lulumelon/icons/lulumelon_logo.png"/>
           <div className={classNames(styles.navDirectory, styles.flexRow, styles.spaceBetween)}>
-            <div className={classNames(styles.navSelection, styles.clickable)}>Women</div>
-            <div className={classNames(styles.navSelection, styles.clickable)}>Men</div>
-            <div className={classNames(styles.navSelection, styles.clickable)}>Girls</div>
-            <div className={classNames(styles.navSelection, styles.clickable)}>Collections</div>
-            <div className={classNames(styles.navSelection, styles.clickable)}>Community</div>
+            {navTitles.map(title => {
+              return (
+                <div className={classNames(styles.navSelection, styles.clickable)} key={title}>{title}</div>
+              );
+            })}
           </div>
         </div>
         <div className={styles.flexRow}>

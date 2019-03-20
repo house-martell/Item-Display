@@ -40,10 +40,7 @@ class App extends React.Component {
 
     // event listeners
     window.addEventListener('scroll', this.onPageScroll);
-    window.addEventListener('resize', _.debounce(this.getPhotoHeight, 500, {leading: false}));
-
-    // get initial photo height once page loads
-    setTimeout(this.getPhotoHeight, 500);
+    window.addEventListener('resize', _.debounce(this.getPhotoHeight, 500, { leading: false }));
   }
 
   //~ Methods for loading product, colors, photos, fabrics, features ~//
@@ -81,7 +78,9 @@ class App extends React.Component {
   getPhotos = colorId => {
     axios.get(`http://localhost:3001/api/products/${this.state.currentProduct.id}/colors/${colorId}/photos`)
       .then(({ data }) => {
-        this.setState({ photos: data, currentPhoto: data[0] });
+        this.setState({ photos: data, currentPhoto: data[0] }, () => {
+          setTimeout(this.getPhotoHeight, 500);
+        });
       })
       .catch(err => console.error('error getting photos', err));
   }

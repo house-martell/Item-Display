@@ -64,4 +64,4 @@ connection.sync({ force: false })
   .then(() => console.log('synced with database'))
   .catch(err => console.error('error syncing database', err));
 
-module.exports = { connection, Product, Color, Photo, Fabric, Feature };
+module.exports = { Product, Color, Photo, Fabric, Feature };
