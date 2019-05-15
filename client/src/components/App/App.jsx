@@ -15,7 +15,8 @@ class App extends React.Component {
     this.state = {
       currentProduct: {
         id: 1, 
-        name: 'Wunder Under High-Rise Tight Full-On Luxtreme 28"', 
+        name: 'Wunder Under High-Rise Tight',
+        nameline2: 'Full-On Luxtreme 28"',
         category: 'Bottoms',
         type: 'Pants', 
         price: '$98.00', 

@@ -3,7 +3,7 @@ const combineLoaders = require('webpack-combine-loaders');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, './client/src/'),
+  entry: path.resolve(__dirname, './client/src'),
   output: {
     path: path.resolve(__dirname, './client/dist'),
     filename: 'bundle.js'
@@ -11,8 +11,8 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: 'babel-loader',
         test: /\.js[x]?/,
+        loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
