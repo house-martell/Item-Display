@@ -27,3 +27,7 @@ Clicking on a color swatch will update all photos.
 <img width="1274" alt="Screen Shot 2019-05-15 at 1 44 19 PM" src="https://user-images.githubusercontent.com/43729021/57808188-afdd9b80-7717-11e9-906b-aca30ff63790.png">
 
 Toggle-box functionality.
+
+<img width="626" alt="Screen Shot 2019-05-15 at 1 54 34 PM" src="https://user-images.githubusercontent.com/43729021/57808823-0dbeb300-7719-11e9-9700-338efb28145d.png">
+
+Page is responsive based on viewport size.
