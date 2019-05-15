@@ -105,7 +105,7 @@
 .sizesList {
   display: none;
   position: absolute;
-  top: 48px;
+  top: 60px;
   z-index: 10;
 }
 
